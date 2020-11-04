@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import clsx from "clsx";
 import { Button, ListItem, makeStyles } from "@material-ui/core";
 import { SideBarListItem } from "./SideBarListItems";
 
@@ -25,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginRight: "auto",
-    //color: theme.palette.grey[50],
   },
   active: {
     color: theme.palette.primary.main,
