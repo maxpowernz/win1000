@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 import SideNavBar from "./navigation/SideNavBar";
 import TopAppBar from "./navigation/TopAppBar";
 import { Route, Redirect, Switch } from "react-router-dom";
@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
-    paddingTop: 100,
+    paddingTop: `calc(${theme.mixins.toolbar.minHeight}px + ${theme.spacing(4)}px)`,
+    border: "2px solid gray",
   },
 }));
 
@@ -37,9 +38,10 @@ export default function MainLayout(): JSX.Element {
     <div className={classes.root}>
       <TopAppBar />
       <SideNavBar />
-      <div className={classes.content}>
-        <Container>{switchRoutes(state.sideBarListItems)}</Container>
-      </div>
+
+      <Container>
+        <div className={classes.content}>{switchRoutes(state.sideBarListItems)}</div>
+      </Container>
     </div>
   );
 }

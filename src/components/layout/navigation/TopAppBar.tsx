@@ -9,7 +9,6 @@ import Badge from "@material-ui/core/Badge";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useAppState } from "../../../AppStateContext";
-import { appBarHeight } from "../../../theme";
 
 const drawerWidth = 240;
 
