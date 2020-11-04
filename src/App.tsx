@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import AdminLayout from "./components/layout/AdminLayout";
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (

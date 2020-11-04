@@ -2,7 +2,8 @@ import { Dashboard, Domain, LocalHospital, School } from "@material-ui/icons";
 
 import People from "@material-ui/icons/People";
 import Person from "@material-ui/icons/Person";
-import PersonalInfo from "../../pages/PersonalInfo";
+import DashBoardHome from "../../../pages/DashBoardPage";
+import PersonalInfo from "../../../pages/PersonalInfo";
 
 export interface SideBarListItem {
   title: string;
@@ -17,7 +18,7 @@ export const sideBarListItems: SideBarListItem[] = [
     title: "Dashboard",
     path: "/dashboard",
     icon: Dashboard,
-    component: () => "DashBoard",
+    component: DashBoardHome,
     layout: "/admin",
   },
 

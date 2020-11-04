@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: theme.mixins.toolbar.minHeight,
     backgroundColor: "#232F3E",
     color: "white",
-    paddingLeft: theme.spacing(2),
+    paddingLeft: theme.spacing(3),
   },
   drawerPaperClose: {
     overflowX: "hidden",
