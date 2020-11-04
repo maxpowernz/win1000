@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { List } from "@material-ui/core";
+import { List, Typography } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     minHeight: theme.mixins.toolbar.minHeight,
     backgroundColor: "#232F3E",
+    color: "white",
+    paddingLeft: theme.spacing(2),
   },
   drawerPaperClose: {
     overflowX: "hidden",
@@ -61,6 +63,7 @@ export default function SideNavBar() {
         paper: clsx(classes.drawerPaper, !state.isDrawerOpen && classes.drawerPaperClose),
       }}>
       <div className={classes.toolbarIcon}>
+        <Typography variant="h4">WIN1000</Typography>
         <IconButton onClick={handleDrawerClose} className={classes.closeIcon}>
           <ChevronLeftIcon />
         </IconButton>
