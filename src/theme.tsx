@@ -21,7 +21,7 @@ const theme = createMuiTheme({
   },
   mixins: {
     toolbar: {
-      minHeight: 150,
+      minHeight: 100,
     },
   },
 });

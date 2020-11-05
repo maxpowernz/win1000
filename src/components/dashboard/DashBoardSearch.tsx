@@ -2,11 +2,10 @@ import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import DirectionsIcon from "@material-ui/icons/Directions";
+//import { findChild } from "../../mockdata/children";
+import Playground from "./AutoCompleteSearch";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,12 +32,19 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function DashBoardSearch() {
   const classes = useStyles();
 
+  const search = (e: any) => {
+    console.log(e.target.value);
+  };
+
   return (
-    <Paper component="form" className={classes.root}>
-      <InputBase className={classes.input} placeholder="Search For Child" />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-    </Paper>
+    <>
+      <Paper component="form" className={classes.root}>
+        <InputBase className={classes.input} placeholder="First Last" onClick={(e) => search(e)} />
+        <IconButton className={classes.iconButton} aria-label="search" onClick={(e) => search(e)}>
+          <SearchIcon />
+        </IconButton>
+      </Paper>
+      <Playground />
+    </>
   );
 }
