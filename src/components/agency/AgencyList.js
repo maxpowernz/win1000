@@ -2,6 +2,8 @@ import React from 'react';
 import { forwardRef } from 'react';
 import MaterialTable from "material-table";
 import AgencyEmployeeList from './AgencyEmployeeList';
+import { ThemeProvider } from "@material-ui/core";
+import theme from '../../theme';
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -45,6 +47,7 @@ export default function AgencyList() {
  
   return (
     <div style={{ maxWidth: "100%" }}>
+      <ThemeProvider theme={theme}>
         <MaterialTable
           icons={tableIcons}
           columns={[
@@ -138,7 +141,7 @@ export default function AgencyList() {
               onClick: (event, rowData) => alert("Delete agency detail " + rowData.name)
             },
           ]}
-
+          onRowClick={(event, rowData, togglePanel) => togglePanel()}
           detailPanel={[
             {
               tooltip: 'Show Name',
@@ -156,10 +159,15 @@ export default function AgencyList() {
             },
           ]}
           options={{
-            actionsColumnIndex: -1
+            actionsColumnIndex: -1,
+            headerStyle: {
+              backgroundColor: theme.palette.headerStyle.main,
+              // color: "#FFFFFF"
+            }
           }}
           title="Agencies' list"
         />
+        </ThemeProvider>
       </div>
   );
 }
