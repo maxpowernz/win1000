@@ -1,5 +1,5 @@
-import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import AdminLayout from "./components/layout/AdminLayout";
