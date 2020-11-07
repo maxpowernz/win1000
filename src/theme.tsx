@@ -1,22 +1,21 @@
 import red from "@material-ui/core/colors/red";
-import { createMuiTheme } from "@material-ui/core/styles";
+import grey from "@material-ui/core/colors/grey";
+import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
 
-export const appBarHeight = 128;
+const primaryMain = "#009BE5";
+const secondaryMain = "#1FAA00";
 
 // A custom theme for this app
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#009BE5",
+      main: primaryMain,
     },
     secondary: {
-      main: "#1FAA00",
+      main: secondaryMain,
     },
     error: {
       main: red.A400,
-    },
-    background: {
-      default: "#fff",
     },
   },
   mixins: {
@@ -24,6 +23,19 @@ const theme = createMuiTheme({
       minHeight: 100,
     },
   },
-});
+  custom: {},
+} as ThemeOptions);
+
+// export interface XTheme extends Theme {
+//   aboveTableHeading: {
+//     fontSize: 24;
+//   };
+// }
+
+// interface XThemeOptions extends ThemeOptions {
+//   aboveTableHeading: {
+//     fontSize: 24;
+//   };
+// }
 
 export default theme;

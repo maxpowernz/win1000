@@ -11,6 +11,7 @@ export interface SideBarListItem {
   icon: any;
   component: any;
   layout?: string;
+  section?: string;
 }
 
 export const sideBarListItems: SideBarListItem[] = [

@@ -9,6 +9,7 @@ import Badge from "@material-ui/core/Badge";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useAppState } from "../../../AppStateContext";
+import ChildNavTabs from "./ChildNavTabs";
 
 const drawerWidth = 240;
 
@@ -56,27 +57,33 @@ export default function TopAppBar() {
   };
 
   return (
-    <AppBar
-      position="absolute"
-      className={clsx(classes.appBar, state.isDrawerOpen && classes.appBarShift)}>
-      <Toolbar className={classes.toolbar}>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          className={clsx(classes.menuButton, state.isDrawerOpen && classes.menuButtonHidden)}>
-          <MenuIcon />
-        </IconButton>
-        <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-          Dashboard
-        </Typography>
-        <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar
+        position="absolute"
+        className={clsx(classes.appBar, state.isDrawerOpen && classes.appBarShift)}>
+        <Toolbar className={classes.toolbar}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            className={clsx(classes.menuButton, state.isDrawerOpen && classes.menuButtonHidden)}>
+            <MenuIcon />
+          </IconButton>
+          <Typography component="h5" variant="h5" color="inherit" noWrap className={classes.title}>
+            {Object.keys(state.selectedChild).length > 0 && (
+              <span>{state.selectedChild.firstName + " " + state.selectedChild.lastName}</span>
+            )}
+          </Typography>
+          <IconButton color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+        </Toolbar>
+
+        {state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId} />}
+      </AppBar>
+    </>
   );
 }
