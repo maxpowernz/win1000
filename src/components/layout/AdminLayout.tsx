@@ -1,10 +1,11 @@
 import React from "react";
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 import SideNavBar from "./navigation/SideNavBar";
 import TopAppBar from "./navigation/TopAppBar";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { useAppState } from "../../AppStateContext";
 import { SideBarListItem } from "./navigation/SideBarListItems";
+import ChildMain from "../../pages/ChildMain";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,14 +14,13 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto",
-    paddingTop: `calc(${theme.mixins.toolbar.minHeight}px + ${theme.spacing(4)}px)`,
-    border: "2px solid gray",
+    paddingTop: `calc(${theme.mixins.toolbar.minHeight}px + ${theme.spacing(8)}px)`,
   },
 }));
 
 const switchRoutes = (routes: SideBarListItem[]) => (
   <Switch>
+    <Route path="/admin/childmain/:id" component={ChildMain}></Route>
     {routes.map((route) => {
       return (
         <Route path={route.layout + route.path} component={route.component} key={route.title} />
@@ -37,6 +37,7 @@ export default function MainLayout(): JSX.Element {
   return (
     <div className={classes.root}>
       <TopAppBar />
+
       <SideNavBar />
 
       <Container>

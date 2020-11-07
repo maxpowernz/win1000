@@ -1,11 +1,14 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
+import { Child } from "./shared/interfaces/child.interface";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
 interface AppState {
   isDrawerOpen: boolean;
   sideBarListItems: SideBarListItem[];
+  selectedChild: Child;
+  showChildNavTabs: boolean;
 }
 
 interface AppStateContextProps {
@@ -16,9 +19,14 @@ interface AppStateContextProps {
 const appData: AppState = {
   isDrawerOpen: true,
   sideBarListItems: sideBarListItems,
+  selectedChild: {} as Child,
+  showChildNavTabs: false,
 };
 
-type Action = { type: "OPEN_CLOSE_DRAWER"; payload: boolean };
+type Action =
+  | { type: "OPEN_CLOSE_DRAWER"; payload: boolean }
+  | { type: "SHOW_CHILD_NAVTABS"; payload: boolean }
+  | { type: "SET_SELECTED_CHILD"; payload: Child };
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
@@ -26,6 +34,18 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       return {
         ...state,
         isDrawerOpen: action.payload,
+      };
+    }
+    case "SHOW_CHILD_NAVTABS": {
+      return {
+        ...state,
+        showChildNavTabs: action.payload,
+      };
+    }
+    case "SET_SELECTED_CHILD": {
+      return {
+        ...state,
+        selectedChild: action.payload,
       };
     }
 

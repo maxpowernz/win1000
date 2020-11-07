@@ -1,44 +1,79 @@
-import React from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import DirectionsIcon from "@material-ui/icons/Directions";
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { Box, Button, Grid, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import childList from "../../mockdata/mockchildren.json";
+import { Child } from "../../shared/interfaces/child.interface";
+import moment from "moment";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      padding: "2px 4px",
-      display: "flex",
-      alignItems: "center",
+    textField: {
       width: 400,
-    },
-    input: {
-      marginLeft: theme.spacing(1),
-      flex: 1,
-    },
-    iconButton: {
-      padding: 10,
-    },
-    divider: {
-      height: 28,
-      margin: 4,
+      "& .MuiAutocomplete-inputRoot": {
+        //padding: theme.spacing(1),
+      },
+      flexGrow: 1,
     },
   })
 );
 
-export default function DashBoardSearch() {
+export default function ComboBox() {
   const classes = useStyles();
+  const history = useHistory();
+  const [disabled, setDisabled] = useState(true);
+  const [childId, setChildId] = useState<null | number>(null);
+
+  const handleChange = (event: any, child: Child | null) => {
+    if (child === null) {
+      setDisabled(true);
+      setChildId(null);
+    } else {
+      setDisabled(false);
+      setChildId(child.childId);
+    }
+  };
+
+  const handleClick = () => {
+    console.log(childId);
+
+    return history.push(`/admin/childmain/${childId}`);
+  };
+  const children: any = childList.children;
 
   return (
-    <Paper component="form" className={classes.root}>
-      <InputBase className={classes.input} placeholder="Search For Child" />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-    </Paper>
+    <div>
+      <Typography variant="h5" color="textSecondary">
+        Search Children
+      </Typography>
+      <Box marginY={1}></Box>
+      <Grid container spacing={3} alignItems="flex-end">
+        <Grid item>
+          <Autocomplete
+            id="combo-box-demo"
+            onChange={handleChange}
+            options={children}
+            className={classes.textField}
+            getOptionLabel={(option: Child) =>
+              option.firstName +
+              " " +
+              option.lastName +
+              " - " +
+              moment(new Date(option.dateOfBirth)).format("DD/MM/YYYY")
+            }
+            renderInput={(params) => {
+              return <TextField {...params} variant="outlined" placeholder="Lastname" />;
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Button onClick={handleClick} variant="contained" color="secondary" disabled={disabled}>
+            View Child
+          </Button>
+        </Grid>
+      </Grid>
+    </div>
   );
 }
