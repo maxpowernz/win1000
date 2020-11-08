@@ -76,12 +76,18 @@
       ],
       "health": [
         {
-          "field": "value"
+          "field1": "value",
+          "field2": "value2",
+          "field3": "value3"
         },
         {
-          "field2": "value2"
+          "field1": "value",
+          "field2": "value2",
+          "field3": "value3"
         },
         {
+          "field1": "value",
+          "field2": "value2",
           "field3": "value3"
         }
       ],

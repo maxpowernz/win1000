@@ -6,8 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Issue } from "../../shared/interfaces/issue.interface";
-import moment from "moment";
+import { Health } from "../../shared/interfaces/health.interface";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -45,36 +44,31 @@ const useStyles = makeStyles(() =>
 );
 
 interface Props {
-  data: any;
-  tableHeaderData: any;
+  data: Health[];
 }
 
-export default function ChildIssuesTable({ data, tableHeaderData }: Props) {
+export default function ChildHealthTable({ data }: Props) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Issues" color="red">
+      <TableWrapper heading="Health" color="red">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell>Agency</StyledTableCell>
-              <StyledTableCell>Contact</StyledTableCell>
-              <StyledTableCell>Date Opened</StyledTableCell>
-              <StyledTableCell>Status</StyledTableCell>
+              <StyledTableCell>Field 1</StyledTableCell>
+              <StyledTableCell>Field 2</StyledTableCell>
+              <StyledTableCell>Field 3</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((issue: any) => (
-              <StyledTableRow key={issue.issueId}>
+            {data.map((d: Health) => (
+              <StyledTableRow key={d.field1}>
                 <StyledTableCell component="th" scope="row">
-                  {issue.agencyName}
+                  {d.field1}
                 </StyledTableCell>
-                <StyledTableCell>{issue.contact}</StyledTableCell>
-                <StyledTableCell>
-                  {moment(issue.dateIssueOpened).format("DD/MM/YYYY")}
-                </StyledTableCell>
-                <StyledTableCell>{issue.issueStatus}</StyledTableCell>
+                <StyledTableCell>{d.field2}</StyledTableCell>
+                <StyledTableCell>{d.field3}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
