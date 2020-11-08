@@ -1,5 +1,4 @@
 import red from "@material-ui/core/colors/red";
-import grey from "@material-ui/core/colors/grey";
 import { createMuiTheme, ThemeOptions } from "@material-ui/core/styles";
 
 const primaryMain = "#009BE5";
