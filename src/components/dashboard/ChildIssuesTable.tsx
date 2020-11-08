@@ -53,7 +53,7 @@ export default function ChildIssuesTable({ issues }: IssueProps) {
 
   return (
     <>
-      <TableWrapper heading="Issues" color="red">
+      <TableWrapper heading="Issues" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>

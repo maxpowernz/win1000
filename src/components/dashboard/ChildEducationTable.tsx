@@ -54,7 +54,7 @@ export default function ChildEducationTable({ data }: Props) {
 
   return (
     <>
-      <TableWrapper heading="Health" color="primary">
+      <TableWrapper heading="Education" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>

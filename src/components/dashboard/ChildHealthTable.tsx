@@ -52,7 +52,7 @@ export default function ChildHealthTable({ data }: Props) {
 
   return (
     <>
-      <TableWrapper heading="Health" color="red">
+      <TableWrapper heading="Health" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
