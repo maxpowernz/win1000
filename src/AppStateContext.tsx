@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
 import { Child } from "./shared/interfaces/child.interface";
+import useWindowDimensions from "./utils/hooks/useWindowDimensions";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
@@ -56,6 +57,8 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
 };
 
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
+  const { width } = useWindowDimensions();
+  appData.isDrawerOpen = width < 600 ? appData.isDrawerOpen : false
   const [state, dispatch] = useReducer(appStateReducer, appData);
 
   return (

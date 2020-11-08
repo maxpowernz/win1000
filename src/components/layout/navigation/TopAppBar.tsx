@@ -10,6 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useAppState } from "../../../AppStateContext";
 import ChildNavTabs from "./ChildNavTabs";
+import useWindowDimensions from "../../../utils/hooks/useWindowDimensions";
+
 
 const drawerWidth = 240;
 
@@ -37,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
+    [theme.breakpoints.up('sm')]: {
+      display: "none",
+    },
     marginRight: 36,
   },
   menuButtonHidden: {
@@ -55,6 +60,8 @@ export default function TopAppBar() {
   const handleDrawerOpen = () => {
     dispatch({ type: "OPEN_CLOSE_DRAWER", payload: true });
   };
+
+  const { width } = useWindowDimensions();
 
   return (
     <>
@@ -82,7 +89,7 @@ export default function TopAppBar() {
           </IconButton>
         </Toolbar>
 
-        {state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId} />}
+        {width > 600 ? state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId}/> : <></>}
       </AppBar>
     </>
   );

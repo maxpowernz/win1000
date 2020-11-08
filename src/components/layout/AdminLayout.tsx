@@ -6,6 +6,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { useAppState } from "../../AppStateContext";
 import { SideBarListItem } from "./navigation/SideBarListItems";
 import ChildMain from "../../pages/ChildMain";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,12 +34,14 @@ const switchRoutes = (routes: SideBarListItem[]) => (
 export default function MainLayout(): JSX.Element {
   const classes = useStyles();
   const { state } = useAppState();
+  const { width } = useWindowDimensions();
+
 
   return (
     <div className={classes.root}>
       <TopAppBar />
 
-      <SideNavBar />
+      {width > 600 ? <></> : <SideNavBar />}
 
       <Container>
         <div className={classes.content}>{switchRoutes(state.sideBarListItems)}</div>

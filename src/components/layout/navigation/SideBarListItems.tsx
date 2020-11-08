@@ -4,7 +4,6 @@ import People from "@material-ui/icons/People";
 import Person from "@material-ui/icons/Person";
 import DashBoardHome from "../../../pages/DashBoardHome";
 import Agencies from "../../../pages/Agencies";
-import DashBoardHome from "../../../pages/DashBoardPage";
 import PersonalInfo from "../../../pages/PersonalInfo";
 
 export interface SideBarListItem {
