@@ -160,10 +160,10 @@ export default function AgencyList() {
           ]}
           options={{
             actionsColumnIndex: -1,
-            headerStyle: {
-              backgroundColor: theme.palette.headerStyle.main,
-              // color: "#FFFFFF"
-            }
+            // headerStyle: {
+            //   backgroundColor: theme.palette.headerStyle.main,
+            //   color: "#FFFFFF"
+            // }
           }}
           title="Agencies' list"
         />

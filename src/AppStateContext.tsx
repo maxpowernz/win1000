@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
+import { SideBarListItem, sideBarListItems, adminSideBarListItems } from "./components/layout/navigation/SideBarListItems";
 import { Child } from "./shared/interfaces/child.interface";
-import useWindowDimensions from "./utils/hooks/useWindowDimensions";
+// import useWindowDimensions from "./utils/hooks/useWindowDimensions";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
 interface AppState {
   isDrawerOpen: boolean;
   sideBarListItems: SideBarListItem[];
+  adminSideBarListItems: SideBarListItem[];
   selectedChild: Child;
   showChildNavTabs: boolean;
 }
@@ -20,6 +21,7 @@ interface AppStateContextProps {
 const appData: AppState = {
   isDrawerOpen: true,
   sideBarListItems: sideBarListItems,
+  adminSideBarListItems: adminSideBarListItems,
   selectedChild: {} as Child,
   showChildNavTabs: false,
 };
@@ -57,8 +59,8 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
 };
 
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const { width } = useWindowDimensions();
-  appData.isDrawerOpen = width < 600 ? appData.isDrawerOpen : false
+  // const { width } = useWindowDimensions();
+  // appData.isDrawerOpen = width < 600 ? appData.isDrawerOpen : false
   const [state, dispatch] = useReducer(appStateReducer, appData);
 
   return (

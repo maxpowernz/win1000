@@ -55,7 +55,9 @@ export const sideBarListItems: SideBarListItem[] = [
     component: () => "Education",
     layout: "/admin",
   },
+];
 
+export const adminSideBarListItems: SideBarListItem[] = [
   {
     title: "Outside Agencies",
     path: "/outside-agencies",

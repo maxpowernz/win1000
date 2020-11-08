@@ -41,7 +41,8 @@ export default function MainLayout(): JSX.Element {
     <div className={classes.root}>
       <TopAppBar />
 
-      {width > 600 ? <></> : <SideNavBar />}
+      {/* {width > 600 ? <></> : <SideNavBar />} */}
+      <SideNavBar />
 
       <Container>
         <div className={classes.content}>{switchRoutes(state.sideBarListItems)}</div>

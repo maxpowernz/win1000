@@ -39,9 +39,9 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    [theme.breakpoints.up('sm')]: {
-      display: "none",
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //   display: "none",
+    // },
     marginRight: 36,
   },
   menuButtonHidden: {
@@ -89,7 +89,8 @@ export default function TopAppBar() {
           </IconButton>
         </Toolbar>
 
-        {width > 600 ? state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId}/> : <></>}
+        {/* {width > 600 ? state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId}/> : <></>} */}
+        {state.showChildNavTabs && <ChildNavTabs id={state.selectedChild.childId}/>}
       </AppBar>
     </>
   );

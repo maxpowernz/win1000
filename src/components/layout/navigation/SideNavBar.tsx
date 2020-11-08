@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { List, Typography } from "@material-ui/core";
+import { List, Typography, Divider } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -42,8 +42,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[50],
   },
   listItems: {
+    paddingLeft: theme.spacing(2),
+  },
+  listItemsTitle: {
+    paddingTop: theme.spacing(2),
     paddingLeft: theme.spacing(1),
   },
+  divider: {
+    // Theme Color, or use css color in quote
+    background: "#5A5A5A",
+  },
+  
 }));
 
 export default function SideNavBar() {
@@ -54,7 +63,6 @@ export default function SideNavBar() {
   const handleDrawerClose = () => {
     dispatch({ type: "OPEN_CLOSE_DRAWER", payload: false });
   };
-
   return (
     <Drawer
       variant="permanent"
@@ -67,11 +75,30 @@ export default function SideNavBar() {
           <ChevronLeftIcon />
         </IconButton>
       </div>
+      <Typography variant="h5" color="primary" className = {classes.listItemsTitle}>
+       About me
+      </Typography>
       <List className={classes.listItems}>
         {state.sideBarListItems.map((item) => {
-          return <NavItem {...item} key={item.title} />;
+          return (<>
+          <NavItem {...item} key={item.title} />
+          <Divider variant="middle" classes={{root: classes.divider}}/>
+          </>);
         })}
       </List>
+
+      <Typography variant="h5" color="primary" className = {classes.listItemsTitle}>
+        Admin
+      </Typography>
+      <List className={classes.listItems}>
+        {state.adminSideBarListItems.map((item) => {
+          return (<>
+          <NavItem {...item} key={item.title} />
+          <Divider variant="middle" classes={{root: classes.divider}}/>
+          </>);
+        })}
+      </List>
+
     </Drawer>
   );
 }
