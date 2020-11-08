@@ -16,7 +16,7 @@ export interface SideBarListItem {
 
 export const sideBarListItems: SideBarListItem[] = [
   {
-    title: "Dashboard",
+    title: "Home",
     path: "/dashboard",
     icon: Dashboard,
     component: DashBoardHome,

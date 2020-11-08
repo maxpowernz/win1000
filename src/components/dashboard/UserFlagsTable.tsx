@@ -6,8 +6,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Issue } from "../../shared/interfaces/issue.interface";
-import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -32,9 +30,15 @@ const StyledTableRow = withStyles(() =>
   })
 )(TableRow);
 
-// function createData(from: string, subject: string, date: string) {
-//   return { from, subject, date };
-// }
+function createData(from: string, subject: string, date: string) {
+  return { from, subject, date };
+}
+
+const rows = [
+  createData("Craig Ritani", "Subject line", new Date("2020,11,05").toDateString()),
+  createData("Craig Ritani", "Subject line", new Date("2020,10,15").toDateString()),
+  createData("Craig Ritani", "Subject line", new Date("2020,09,05").toDateString()),
+];
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -44,36 +48,28 @@ const useStyles = makeStyles(() =>
   })
 );
 
-interface IssueProps {
-  issues: Issue[];
-}
-
-export default function ChildIssuesTable({ issues }: IssueProps) {
+export default function FlagsTable() {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Issues" color="primary">
+      <TableWrapper heading="flags" color="red">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell>Agency</StyledTableCell>
-              <StyledTableCell>Contact</StyledTableCell>
-              <StyledTableCell>Date Opened</StyledTableCell>
-              <StyledTableCell>Status</StyledTableCell>
+              <StyledTableCell>From</StyledTableCell>
+              <StyledTableCell>Subject</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {issues.map((issue: Issue) => (
-              <StyledTableRow key={issue.issueId}>
+            {rows.map((row) => (
+              <StyledTableRow key={row.date}>
                 <StyledTableCell component="th" scope="row">
-                  {issue.agencyName}
+                  {row.from}
                 </StyledTableCell>
-                <StyledTableCell>{issue.contact}</StyledTableCell>
-                <StyledTableCell>
-                  {moment(issue.dateIssueOpened).format("DD/MM/YYYY")}
-                </StyledTableCell>
-                <StyledTableCell>{issue.issueStatus}</StyledTableCell>
+                <StyledTableCell>{row.subject}</StyledTableCell>
+                <StyledTableCell>{row.date}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

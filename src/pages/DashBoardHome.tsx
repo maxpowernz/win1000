@@ -2,7 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import React from "react";
 import DashBoardSearch from "../components/dashboard/DashBoardSearch";
 import InboxTable from "../components/dashboard/InboxTable";
-import IssuesTable from "../components/dashboard/IssuesTable";
+import FlagsTable from "../components/dashboard/ChildFlagsTable";
 import user from "../mockdata/user.json";
 
 function DashBoardHome() {
@@ -30,7 +30,6 @@ function DashBoardHome() {
       </Grid>
 
       <InboxTable />
-      <IssuesTable />
     </>
   );
 }

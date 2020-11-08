@@ -7,7 +7,7 @@ export default function Health() {
 
   return (
     <div>
-      {state.selectedChild.issues && (
+      {state.selectedChild.flags && (
         <ChildHealthTable data={state.selectedChild.health}></ChildHealthTable>
       )}
     </div>
