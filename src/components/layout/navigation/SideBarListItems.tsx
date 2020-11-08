@@ -3,6 +3,8 @@ import { Dashboard, Domain, LocalHospital, School } from "@material-ui/icons";
 import People from "@material-ui/icons/People";
 import Person from "@material-ui/icons/Person";
 import DashBoardHome from "../../../pages/DashBoardHome";
+import Agencies from "../../../pages/Agencies";
+import DashBoardHome from "../../../pages/DashBoardPage";
 import PersonalInfo from "../../../pages/PersonalInfo";
 
 export interface SideBarListItem {
@@ -59,7 +61,7 @@ export const sideBarListItems: SideBarListItem[] = [
     title: "Outside Agencies",
     path: "/outside-agencies",
     icon: Domain,
-    component: () => "OutsideAgencies",
+    component: Agencies,
     layout: "/admin",
   },
 ];
