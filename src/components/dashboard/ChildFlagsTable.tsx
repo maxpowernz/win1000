@@ -8,6 +8,9 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
+import { Edit } from "@material-ui/icons";
+import IconButton from "@material-ui/core/IconButton";
+import SimpleDialogDemo from "../dialog-boxes/BaseDialog";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -59,8 +62,9 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
             <TableRow style={{ height: 1 }}>
               <StyledTableCell>Agency</StyledTableCell>
               <StyledTableCell>Contact</StyledTableCell>
-              <StyledTableCell>Date Opened</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -74,6 +78,12 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                   {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
+                <TableCell>
+                  <IconButton onClick={() => SimpleDialogDemo()}>
+                    <Edit></Edit>
+                  </IconButton>
+                </TableCell>
+                <SimpleDialogDemo />
               </StyledTableRow>
             ))}
           </TableBody>

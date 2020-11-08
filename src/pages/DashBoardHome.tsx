@@ -4,6 +4,7 @@ import DashBoardSearch from "../components/dashboard/DashBoardSearch";
 import InboxTable from "../components/dashboard/InboxTable";
 import FlagsTable from "../components/dashboard/ChildFlagsTable";
 import user from "../mockdata/user.json";
+import { Avatar, Typography } from "@material-ui/core";
 
 function DashBoardHome() {
   return (
@@ -21,6 +22,9 @@ function DashBoardHome() {
           alignItems="flex-end"
           justify="space-around"
           style={{ fontSize: 16 }}>
+          <Avatar style={{ padding: 30 }}>
+            <Typography variant="h4">{user.firstName.substring(0, 1)}</Typography>
+          </Avatar>
           <div>
             {user.firstName} {user.lastName}
           </div>

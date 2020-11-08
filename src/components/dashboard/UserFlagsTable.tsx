@@ -53,7 +53,7 @@ export default function FlagsTable() {
 
   return (
     <>
-      <TableWrapper heading="flags" color="red">
+      <TableWrapper heading="My Flags" color="red">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
