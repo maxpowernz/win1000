@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div style={{ display: "flex", padding: "2rem" }}>
       <Link to="/admin">
-        <h2>Admin</h2>
+        <h2>Log in</h2>
       </Link>
     </div>
   );
