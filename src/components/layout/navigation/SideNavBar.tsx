@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { List, Typography } from "@material-ui/core";
+import { Divider, List, Typography } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -44,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   listItems: {
     paddingLeft: theme.spacing(1),
   },
+  divider: {
+    backgroundColor: theme.palette.grey[600],
+  },
 }));
 
 export default function SideNavBar() {
@@ -69,6 +72,19 @@ export default function SideNavBar() {
       </div>
       <List className={classes.listItems}>
         {state.sideBarListItems.map((item) => {
+          return <NavItem {...item} key={item.title} />;
+        })}
+      </List>
+      <Divider className={classes.divider} variant="middle"></Divider>
+      <List className={classes.listItems}>
+        {state.userSideBarListItems.map((item) => {
+          return <NavItem {...item} key={item.title} />;
+        })}
+      </List>
+      <Divider className={classes.divider} variant="middle"></Divider>
+
+      <List className={classes.listItems}>
+        {state.adminSideBarListItems.map((item) => {
           return <NavItem {...item} key={item.title} />;
         })}
       </List>

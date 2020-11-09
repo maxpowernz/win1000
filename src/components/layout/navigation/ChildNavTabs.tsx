@@ -21,13 +21,15 @@ function ChildNavTabs({ id }: Props) {
         value={value}
         indicatorColor="primary"
         textColor="primary"
+        centered
+        variant="fullWidth"
         onChange={handleChange}
         aria-label="disabled tabs example">
-        <Tab label="Personal Info" component={Link} to={`/admin/childmain/${id}`} />
-        <Tab label="Whanau" component={Link} to={`/admin/childmain/family/${id}`} />
-        <Tab label="Health" component={Link} to={`/admin/childmain/health/${id}`} />
-        <Tab label="Education" component={Link} to={`/admin/childmain/education/${id}`} />
-        <Tab label="Agencies" component={Link} to={`/admin/childmain/agencies/${id}`} />
+        <Tab label="Personal Info" component={Link} to={`/admin/child/${id}`} />
+        <Tab label="Whanau" component={Link} to={`/admin/child/family/${id}`} />
+        <Tab label="Health" component={Link} to={`/admin/child/health/${id}`} />
+        <Tab label="Education" component={Link} to={`/admin/child/education/${id}`} />
+        <Tab label="Agencies" component={Link} to={`/admin/child/agencies/${id}`} />
       </Tabs>
     </Box>
   );

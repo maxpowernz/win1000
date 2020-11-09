@@ -8,9 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
-import { Edit } from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
-import SimpleDialogDemo from "../dialog-boxes/BaseDialog";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -51,19 +48,17 @@ interface FlagProps {
   flags: Flag[];
 }
 
-export default function ChildFlagsTable({ flags }: FlagProps) {
+export default function ChildAgenciesTable({ flags }: FlagProps) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Flags" color="primary">
+      <TableWrapper heading="Involved Agencies" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
               <StyledTableCell>Agency</StyledTableCell>
-              <StyledTableCell>Contact</StyledTableCell>
-              <StyledTableCell>Date</StyledTableCell>
-              <StyledTableCell>Status</StyledTableCell>
+              <StyledTableCell align="right">Flags</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -72,11 +67,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                 <StyledTableCell component="th" scope="row">
                   {flag.agencyName}
                 </StyledTableCell>
-                <StyledTableCell>{flag.contact}</StyledTableCell>
-                <StyledTableCell>
-                  {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
-                </StyledTableCell>
-                <StyledTableCell>{flag.flagStatus}</StyledTableCell>
+                <StyledTableCell align="right">{Math.floor(Math.random() * 20)}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

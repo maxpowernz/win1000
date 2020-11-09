@@ -5,7 +5,7 @@ import TopAppBar from "./navigation/TopAppBar";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { useAppState } from "../../AppStateContext";
 import { SideBarListItem } from "./navigation/SideBarListItems";
-import ChildMain from "../../pages/ChildMain";
+import ChildHome from "../../pages/child/ChildHome";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,17 +18,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const switchRoutes = (routes: SideBarListItem[]) => (
-  <Switch>
-    <Route path="/admin/childmain/:id" component={ChildMain}></Route>
-    {routes.map((route) => {
-      return (
-        <Route path={route.layout + route.path} component={route.component} key={route.title} />
-      );
-    })}
-    <Redirect from="/admin" to="/admin/dashboard" />
-  </Switch>
-);
+const switchRoutes = (routes: SideBarListItem[]) => {
+  return routes.map((route) => (
+    <Route path={route.layout + route.path} component={route.component} key={route.title}></Route>
+  ));
+};
 
 export default function MainLayout(): JSX.Element {
   const classes = useStyles();
@@ -41,7 +35,17 @@ export default function MainLayout(): JSX.Element {
       <SideNavBar />
 
       <Container>
-        <div className={classes.content}>{switchRoutes(state.sideBarListItems)}</div>
+        <div className={classes.content}>
+          <Switch>
+            <Route path="/admin/child/:id" component={ChildHome}></Route>
+            {switchRoutes(state.sideBarListItems)}
+            {switchRoutes(state.userSideBarListItems)}
+
+            {switchRoutes(state.adminSideBarListItems)}
+
+            <Redirect from="/admin" to="/admin/dashboard" />
+          </Switch>
+        </div>
       </Container>
     </div>
   );

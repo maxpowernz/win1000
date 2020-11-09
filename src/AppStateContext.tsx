@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useReducer } from "react";
+import { adminSideBarListItems } from "./components/layout/navigation/AdminSideBarListItems";
 import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
+import { userSideBarListItems } from "./components/layout/navigation/UserSideBarListItems";
+
 import { Child } from "./shared/interfaces/child.interface";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
@@ -7,6 +10,8 @@ const AppStateContext = createContext<AppStateContextProps>({} as AppStateContex
 interface AppState {
   isDrawerOpen: boolean;
   sideBarListItems: SideBarListItem[];
+  userSideBarListItems: SideBarListItem[];
+  adminSideBarListItems: SideBarListItem[];
   selectedChild: Child;
   showChildNavTabs: boolean;
 }
@@ -19,6 +24,8 @@ interface AppStateContextProps {
 const appData: AppState = {
   isDrawerOpen: true,
   sideBarListItems: sideBarListItems,
+  userSideBarListItems: userSideBarListItems,
+  adminSideBarListItems: adminSideBarListItems,
   selectedChild: {} as Child,
   showChildNavTabs: false,
 };

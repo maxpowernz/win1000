@@ -2,7 +2,6 @@ import Grid from "@material-ui/core/Grid";
 import React from "react";
 import DashBoardSearch from "../components/dashboard/DashBoardSearch";
 import InboxTable from "../components/dashboard/InboxTable";
-import FlagsTable from "../components/dashboard/ChildFlagsTable";
 import user from "../mockdata/user.json";
 import { Avatar, Typography } from "@material-ui/core";
 

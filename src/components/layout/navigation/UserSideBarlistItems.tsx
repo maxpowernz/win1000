@@ -1,9 +1,8 @@
-import { Dashboard, Domain, LocalHospital, School } from "@material-ui/icons";
-
-import People from "@material-ui/icons/People";
+import Email from "@material-ui/icons/Email";
 import Person from "@material-ui/icons/Person";
-import DashBoardHome from "../../../pages/DashBoardHome";
-import PersonalInfo from "../../../pages/PersonalInfo";
+import Flag from "@material-ui/icons/Flag";
+import UserMessages from "../../../pages/user/UserMessages";
+import UserProfile from "../../../pages/user/UserProfile";
 
 export interface SideBarListItem {
   title: string;
@@ -16,42 +15,24 @@ export interface SideBarListItem {
 
 export const userSideBarListItems: SideBarListItem[] = [
   {
-    title: "Home",
-    path: "/dashboard",
-    icon: Dashboard,
-    component: DashBoardHome,
-    layout: "/admin",
-  },
-
-  {
-    title: "Personal Info",
-    path: "/personal-info",
+    title: "My Profile",
+    path: "/user/profile",
     icon: Person,
-    component: PersonalInfo,
+    component: UserProfile,
     layout: "/admin",
   },
-
   {
-    title: "Whanau",
-    path: "/whanau",
-    icon: People,
-    component: () => "Whanau",
+    title: "My Flags",
+    path: "/user/flags",
+    icon: Flag,
+    component: UserMessages,
     layout: "/admin",
   },
-
   {
-    title: "Health",
-    path: "/health",
-    icon: LocalHospital,
-    component: () => "Health",
-    layout: "/admin",
-  },
-
-  {
-    title: "Education",
-    path: "/education",
-    icon: School,
-    component: () => "Education",
+    title: "Messages",
+    path: "/user/messages",
+    icon: Email,
+    component: UserMessages,
     layout: "/admin",
   },
 ];

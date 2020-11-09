@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppState } from "../../AppStateContext";
+import ChildAgenciesTable from "../../components/dashboard/ChildAgenciesTable";
 import ChildflagsTable from "../../components/dashboard/ChildFlagsTable";
 
 export default function Agencies() {
@@ -8,7 +9,7 @@ export default function Agencies() {
   return (
     <div>
       {state.selectedChild.education && (
-        <ChildflagsTable flags={state.selectedChild.flags}></ChildflagsTable>
+        <ChildAgenciesTable flags={state.selectedChild.flags}></ChildAgenciesTable>
       )}
     </div>
   );
