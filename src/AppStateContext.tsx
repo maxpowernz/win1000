@@ -95,14 +95,6 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [state, dispatch] = useReducer(appStateReducer, appData);
 
-  // console.log("provider");
-
-  // const [userState, setUserState] = useLocalStorage("user", {});
-
-  // console.log(userState);
-
-  // useEffect(() => {}, []);
-
   return (
     <AppStateContext.Provider value={{ state, dispatch }}>{children}</AppStateContext.Provider>
   );

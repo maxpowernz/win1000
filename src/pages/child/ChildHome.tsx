@@ -36,7 +36,7 @@ export default function ChildHome() {
 
     const child: Child = findChildById(Number.parseInt(id), children);
 
-    console.log(child);
+    //console.log(child);
 
     if (Object.keys(child).length === 0) {
       history.push("/admin/dashboard");

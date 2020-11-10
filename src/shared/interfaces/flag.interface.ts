@@ -9,6 +9,7 @@ export interface Flag {
   flagDescription: string;
   outcome: string;
   flagStatus: FlagStatus;
+  privacyStatus: string;
 }
 
 enum FlagStatus {

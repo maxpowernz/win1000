@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles, Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,9 +8,10 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
-import { Edit } from "@material-ui/icons";
+import { Edit, Pageview } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
-import SimpleDialogDemo from "../dialog-boxes/BaseDialog";
+import FlagDialog from "./FlagDialog";
+import { useAppState } from "../../AppStateContext";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -53,9 +54,27 @@ interface FlagProps {
 
 export default function ChildFlagsTable({ flags }: FlagProps) {
   const classes = useStyles();
+  const { state } = useAppState();
+
+  const [open, setOpen] = useState(false);
+  const [flagData, setFlagData] = useState<Flag>();
+
+  const handleClickOpen = (id: number) => {
+    const data = state.selectedChild.flags.find((f) => f.flagId === id);
+
+    if (data) {
+      setFlagData(data);
+      setOpen(true);
+    }
+  };
+
+  const handleClose = (value: string) => {
+    setOpen(false);
+  };
 
   return (
     <>
+      {console.log(open)}
       <TableWrapper heading="Flags" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -64,6 +83,8 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
               <StyledTableCell>Contact</StyledTableCell>
               <StyledTableCell>Date</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
+              <StyledTableCell>Visibility</StyledTableCell>
+              <StyledTableCell></StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -77,11 +98,25 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                   {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
+                <StyledTableCell>{flag.privacyStatus}</StyledTableCell>
+                <StyledTableCell>
+                  <IconButton
+                    onClick={(flagId) => handleClickOpen(flag.flagId)}
+                    size="small"
+                    key={flag.flagId}>
+                    <Pageview />
+                  </IconButton>
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
         </Table>
       </TableWrapper>
+      <FlagDialog
+        open={open}
+        handleClose={handleClose}
+        flagData={typeof flagData !== "undefined" ? flagData : ({} as Flag)}
+      />
     </>
   );
 }
