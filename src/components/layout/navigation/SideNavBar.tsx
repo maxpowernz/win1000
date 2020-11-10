@@ -73,59 +73,42 @@ export default function SideNavBar() {
 
   return (
     <Drawer
-      variant="permanent"
-      classes={{
-        paper: clsx(classes.drawerPaper, !state.isDrawerOpen && classes.drawerPaperClose),
-      }}>
-      <div className={classes.toolbarIcon}>
-        <Typography variant="h4">WIN1000</Typography>
-        <IconButton onClick={handleDrawerClose} className={classes.closeIcon}>
-          <ChevronLeftIcon />
-        </IconButton>
-      </div>
-      <Typography variant="h5" color="primary" className = {classes.listItemsTitle}>
-       About me
-      </Typography>
-      <List className={classes.listItems}>
-        {state.sideBarListItems.map((item) => {
-          return (<>
-          <NavItem {...item} key={item.title} />
-          <Divider variant="middle" classes={{root: classes.divider}}/>
-          </>);
-        })}
-      </List>
+    variant="permanent"
+    classes={{
+      paper: clsx(classes.drawerPaper, !state.isDrawerOpen && classes.drawerPaperClose),
+    }}>
+    <div className={classes.toolbarIcon}>
+      <Typography variant="h4">WIN1000</Typography>
+      <IconButton onClick={handleDrawerClose} className={classes.closeIcon}>
+        <ChevronLeftIcon />
+      </IconButton>
+    </div>
+    <List className={classes.listItems}>
+      {state.sideBarListItems.map((item) => {
+        return <NavItem {...item} key={item.title} />;
+      })}
+    </List>
+    <Divider className={classes.divider} variant="middle"></Divider>
+    <List className={classes.listItems}>
+      {state.userSideBarListItems.map((item) => {
+        return <NavItem {...item} key={item.title} />;
+      })}
+    </List>
+    <Divider className={classes.divider} variant="middle"></Divider>
 
-      <Typography variant="h5" color="primary" className = {classes.listItemsTitle}>
-        Admin
-      </Typography>
-      <List className={classes.listItems}>
-        {state.adminSideBarListItems.map((item) => {
-          return (<>
-          <NavItem {...item} key={item.title} />
-          <Divider variant="middle" classes={{root: classes.divider}}/>
-          </>);
-        })}
-      </List>
+    <List className={classes.listItems}>
+      {state.adminSideBarListItems.map((item) => {
+        return <NavItem {...item} key={item.title} />;
+      })}
+    </List>
 
-      <Divider className={classes.divider} variant="middle"></Divider>
-      <List className={classes.listItems}>
-        {state.userSideBarListItems.map((item) => {
-          return <NavItem {...item} key={item.title} />;
-        })}
-      </List>
-      <Divider className={classes.divider} variant="middle"></Divider>
-
-      <List className={classes.listItems}>
-        {state.adminSideBarListItems.map((item) => {
-          return <NavItem {...item} key={item.title} />;
-        })}
-      </List>
-
-      <List>
-        <ListItem disableGutters>
-          <Button onClick={handleLogOut}>Log Out</Button>
-        </ListItem>
-      </List>
-    </Drawer>
+    <List>
+      <ListItem disableGutters>
+        <Button onClick={handleLogOut} variant="contained" color="secondary">
+          Log Out
+        </Button>
+      </ListItem>
+    </List>
+  </Drawer>
   );
 }

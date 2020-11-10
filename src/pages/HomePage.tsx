@@ -28,13 +28,13 @@ function HomePage() {
   return (
     <>
     <LoginForm/>
-      {console.log("home")}
+      {/* {console.log("home")}
       {state.userLoggedIn && <Redirect to="/admin" />}
       <div style={{ padding: 20 }}>
         <Button onClick={() => handleClick()} variant="contained" color="secondary">
           Log in
         </Button>
-      </div>
+      </div> */}
     </>
   );
 }
