@@ -7,12 +7,14 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import TableWrapper from "../table-parts/TableWrapper";
-import { InsertDriveFile } from "@material-ui/icons";
+import { InsertDriveFile, PictureAsPdf } from "@material-ui/icons";
 import { Education } from "../../shared/interfaces/education.interface";
 import { TableFooter } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import { User } from "../../shared/interfaces/user.interface";
 import { useAppState } from "../../AppStateContext";
+import { EducationDocument } from "../../shared/interfaces/documents.interface";
+import { get } from "https";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -80,6 +82,12 @@ export default function DocumentsTable({ data, heading, user }: Props) {
   //   return rows;
   // };
 
+  const getSchoolName = (id: number) => {
+    const schoolName = state.selectedChild.education.find((s) => s.schoolId === id)?.schoolName;
+
+    return schoolName;
+  };
+
   const upload = () => {};
 
   return (
@@ -94,7 +102,20 @@ export default function DocumentsTable({ data, heading, user }: Props) {
             </TableRow>
           </TableHead>
 
-          <TableBody></TableBody>
+          <TableBody>
+            {state.selectedChild.educationDocuments.map((document: EducationDocument) => (
+              <>
+                <StyledTableRow>
+                  <StyledTableCell>{getSchoolName(document.schoolId)}</StyledTableCell>
+                  <StyledTableCell>{document.uploadedBy}</StyledTableCell>
+                  <StyledTableCell>
+                    <InsertDriveFile style={{ color: red[900] }} fontSize="small" />{" "}
+                    {document.documentName}
+                  </StyledTableCell>
+                </StyledTableRow>
+              </>
+            ))}
+          </TableBody>
 
           <TableFooter>
             <TableRow>

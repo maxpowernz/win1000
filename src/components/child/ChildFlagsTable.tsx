@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
-import { Edit, Pageview } from "@material-ui/icons";
+import { Edit, Pageview, Visibility, VisibilityOff } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import FlagDialog from "./FlagDialog";
 import { useAppState } from "../../AppStateContext";
@@ -84,7 +84,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
               <StyledTableCell>Date</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
               <StyledTableCell>Visibility</StyledTableCell>
-              <StyledTableCell></StyledTableCell>
+              <StyledTableCell>View</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -95,16 +95,18 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                 </StyledTableCell>
                 <StyledTableCell>{flag.contact}</StyledTableCell>
                 <StyledTableCell>
-                  {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
+                  {moment(flag.dateFlagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
-                <StyledTableCell>{flag.privacyStatus}</StyledTableCell>
+                <StyledTableCell>
+                  {flag.privacyStatus === "Private" ? <VisibilityOff /> : <Visibility />}
+                </StyledTableCell>
                 <StyledTableCell>
                   <IconButton
                     onClick={(flagId) => handleClickOpen(flag.flagId)}
                     size="small"
                     key={flag.flagId}>
-                    <Pageview />
+                    <Pageview color="secondary" />
                   </IconButton>
                 </StyledTableCell>
               </StyledTableRow>

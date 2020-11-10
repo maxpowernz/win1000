@@ -6,7 +6,9 @@ import useLocalStorage from "./hooks/uselocalStorage";
 
 import { Child } from "./shared/interfaces/child.interface";
 import { EducationDocument } from "./shared/interfaces/documents.interface";
+import { Flag } from "./shared/interfaces/flag.interface";
 import { User } from "./shared/interfaces/user.interface";
+import flags from "./mockdata/flags.json";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 

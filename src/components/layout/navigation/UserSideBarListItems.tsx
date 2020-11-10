@@ -4,6 +4,7 @@ import Flag from "@material-ui/icons/Flag";
 import UserMessages from "../../../pages/user/UserMessages";
 import UserProfile from "../../../pages/user/UserProfile";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import UserFlags from "../../../pages/user/UserFlags";
 
 export interface SideBarListItem {
   title: string;
@@ -26,7 +27,7 @@ export const userSideBarListItems: SideBarListItem[] = [
     title: "My Flags",
     path: "/user/flags",
     icon: Flag,
-    component: UserMessages,
+    component: UserFlags,
     layout: "/admin",
   },
   {
@@ -35,12 +36,5 @@ export const userSideBarListItems: SideBarListItem[] = [
     icon: Email,
     component: UserMessages,
     layout: "/admin",
-  },
-  {
-    title: "Log Out",
-    path: "/",
-    icon: PowerSettingsNewIcon,
-    component: UserMessages,
-    layout: "",
   },
 ];

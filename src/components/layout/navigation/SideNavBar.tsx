@@ -9,6 +9,7 @@ import NavItem from "./NavItem";
 import { Button, Divider, Link, List, ListItem, Typography } from "@material-ui/core";
 import useLocalStorage from "../../../hooks/uselocalStorage";
 import { useHistory } from "react-router-dom";
+import { User } from "../../../shared/interfaces/user.interface";
 
 const drawerWidth = 240;
 
@@ -63,6 +64,7 @@ export default function SideNavBar() {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("user");
+    dispatch({ type: "SET_SELECTED_CHILD", payload: {} as any });
     dispatch({ type: "SET_LOGGED_IN_STATUS", payload: false });
 
     history.push("/");
@@ -91,16 +93,21 @@ export default function SideNavBar() {
           return <NavItem {...item} key={item.title} />;
         })}
       </List>
-      <Divider className={classes.divider} variant="middle"></Divider>
 
-      <List className={classes.listItems}>
-        {state.adminSideBarListItems.map((item) => {
-          return <NavItem {...item} key={item.title} />;
-        })}
-      </List>
+      {state.user.role === "admin" && (
+        <>
+          <Divider className={classes.divider} variant="middle"></Divider>
+
+          <List className={classes.listItems}>
+            {state.adminSideBarListItems.map((item) => {
+              return <NavItem {...item} key={item.title} />;
+            })}
+          </List>
+        </>
+      )}
 
       <List>
-        <ListItem disableGutters>
+        <ListItem>
           <Button onClick={handleLogOut} variant="contained" color="secondary">
             Log Out
           </Button>

@@ -28,9 +28,9 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       minWidth: 300,
-      paper: {
-        minWidth: 400,
-      },
+    },
+    paper: {
+      minWidth: 500,
     },
   })
 );
@@ -79,25 +79,48 @@ export default function FlagDialog(props: Props) {
 
   const classes = useStyles();
 
+  const PrivateData = () => {
+    return (
+      <>
+        <Typography variant="h6" color="error">
+          This flag data is private please contact
+        </Typography>
+        <Typography>
+          {flagData.contact} {flagData.contactNumber}
+        </Typography>
+        <Typography>email@host.com</Typography>
+      </>
+    );
+  };
+
+  const PublicData = () => (
+    <>
+      <Typography variant="h6">Description</Typography>
+      <Typography gutterBottom>{flagData.flagDescription}</Typography>
+      <Typography variant="h6">Outcome</Typography>
+      <Typography gutterBottom style={{ whiteSpace: "break-spaces" }}>
+        {flagData.outcome}
+      </Typography>
+    </>
+  );
+
   return (
     <div>
       <Dialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-        style={{ minWidth: "500px" }}
-        classes={{ root: classes.root }}>
+        classes={{ paper: classes.paper }}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {flagData.agencyName}
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>{flagData.flagDescription}</Typography>
-          <Typography gutterBottom>{flagData.outcome}</Typography>
+          {flagData.privacyStatus === "Private" ? <PrivateData /> : <PublicData />}
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
+        <DialogActions style={{ height: "2rem" }}>
+          {/* <Button autoFocus onClick={handleClose} color="primary">
             Save changes
-          </Button>
+          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

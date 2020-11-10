@@ -10,6 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { useAppState } from "../../../AppStateContext";
 import ChildNavTabs from "./ChildNavTabs";
+import { Email } from "@material-ui/icons";
+import { Redirect, useHistory, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -51,6 +53,7 @@ export default function TopAppBar() {
   const classes = useStyles();
 
   const { state, dispatch } = useAppState();
+  const history = useHistory();
 
   const handleDrawerOpen = () => {
     dispatch({ type: "OPEN_CLOSE_DRAWER", payload: true });
@@ -76,9 +79,9 @@ export default function TopAppBar() {
             )}
           </Typography>
           <Typography>Kia Ora {state.user?.firstName}</Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+          <IconButton color="inherit" onClick={() => history.push("/admin/user/messages")}>
+            <Badge badgeContent={3} color="error">
+              <Email />
             </Badge>
           </IconButton>
         </Toolbar>

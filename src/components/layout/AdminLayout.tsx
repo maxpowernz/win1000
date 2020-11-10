@@ -44,7 +44,7 @@ export default function MainLayout(): JSX.Element {
             {switchRoutes(state.sideBarListItems)}
             {switchRoutes(state.userSideBarListItems)}
 
-            {switchRoutes(state.adminSideBarListItems)}
+            {state.user.role === "admin" && switchRoutes(state.adminSideBarListItems)}
 
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
