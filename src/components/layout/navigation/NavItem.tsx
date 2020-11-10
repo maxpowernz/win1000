@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
   },
   active: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
   },
 }));
 

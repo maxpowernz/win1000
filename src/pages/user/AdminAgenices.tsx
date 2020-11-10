@@ -1,11 +1,11 @@
 import React from "react";
-
+import AgencyList from '../../components/agency/AgencyList'
 interface Props {}
 
 function AdminAgencies(props: Props) {
   const {} = props;
 
-  return <div>admin agencies page</div>;
+  return <AgencyList/>;
 }
 
 export default AdminAgencies;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import FilledInput from '@material-ui/core/FilledInput';
@@ -18,6 +18,9 @@ import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { useHistory } from "react-router-dom";
 import Background from '../Media/pexels-craig-adderley-1835927.jpg';
+
+import { useAppState } from "../AppStateContext";
+import users from "../mockdata/users.json";
 
 const loginCardWidth = 350;
 
@@ -151,8 +154,24 @@ export default function LoginForm() {
     // setActiveStep(activeStep + 1);
   };
 
+  const { state, dispatch } = useAppState();
+
+  useEffect(() => {
+    console.log("home");
+  }, [history]);
+
+  const handleClick = () => {
+    const user: any = users.find((u) => u.userId === 1);
+
+    dispatch({ type: "SET_USER", payload: user });
+    dispatch({ type: "SET_LOGGED_IN_STATUS", payload: true });
+    window.localStorage.setItem("user", JSON.stringify(user));
+  };
+
   return (
-      <div className={classes.root}>
+      <div 
+      className={classes.root}
+      >
         <main className={classes.layout}>
           <Paper className={classes.paper}>
               <div className={classes.formBG}>
@@ -212,7 +231,7 @@ export default function LoginForm() {
                   className={classes.buttons}
                   variant="contained"
                   color="primary"
-                  onClick={handleNext}
+                  onClick={handleClick}
                 >
                   Login
         </Button>
