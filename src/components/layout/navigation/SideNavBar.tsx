@@ -101,7 +101,9 @@ export default function SideNavBar() {
 
       <List>
         <ListItem disableGutters>
-          <Button onClick={handleLogOut}>Log Out</Button>
+          <Button onClick={handleLogOut} variant="contained" color="secondary">
+            Log Out
+          </Button>
         </ListItem>
       </List>
     </Drawer>
