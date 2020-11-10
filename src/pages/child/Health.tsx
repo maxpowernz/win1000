@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppState } from "../../AppStateContext";
-import ChildHealthTable from "../../components/dashboard/ChildHealthTable";
+import ChildHealthTable from "../../components/child/ChildHealthTable";
 
 export default function Health() {
   const { state, dispatch } = useAppState();

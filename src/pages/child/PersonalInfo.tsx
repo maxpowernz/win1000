@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import React from "react";
 import { useAppState } from "../../AppStateContext";
-import ChildFlagsTable from "../../components/dashboard/ChildFlagsTable";
+import ChildFlagsTable from "../../components/child/ChildFlagsTable";
 
 export default function PersonalInfo() {
   const { state, dispatch } = useAppState();

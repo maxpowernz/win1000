@@ -7,6 +7,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Health } from "../../shared/interfaces/health.interface";
+import { Education } from "../../shared/interfaces/education.interface";
+import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -21,12 +23,12 @@ const StyledTableCell = withStyles((theme: Theme) =>
   })
 )(TableCell);
 
-const StyledTableRow = withStyles(() =>
+const StyledTableRow = withStyles((theme) =>
   createStyles({
     root: {
-      //   "&:nth-of-type(odd)": {
-      //     backgroundColor: theme.palette.action.hover,
-      //   },
+      // "&:nth-of-type(odd)": {
+      //   backgroundColor: theme.palette.action.hover,
+      // },
     },
   })
 )(TableRow);
@@ -44,31 +46,34 @@ const useStyles = makeStyles(() =>
 );
 
 interface Props {
-  data: Health[];
+  data: Education[];
 }
 
-export default function ChildHealthTable({ data }: Props) {
+export default function ChildEducationTable({ data }: Props) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Health" color="red">
+      <TableWrapper heading="Education" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
-            <TableRow style={{ height: 1 }}>
-              <StyledTableCell>Field 1</StyledTableCell>
-              <StyledTableCell>Field 2</StyledTableCell>
-              <StyledTableCell>Field 3</StyledTableCell>
-            </TableRow>
+            <StyledTableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell>Level</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
+            </StyledTableRow>
           </TableHead>
           <TableBody>
-            {data.map((d: Health) => (
-              <StyledTableRow key={d.field1}>
+            {data.map((d: Education) => (
+              <StyledTableRow key={d.schoolId}>
                 <StyledTableCell component="th" scope="row">
-                  {d.field1}
+                  {d.schoolName}
                 </StyledTableCell>
-                <StyledTableCell>{d.field2}</StyledTableCell>
-                <StyledTableCell>{d.field3}</StyledTableCell>
+                <StyledTableCell>{d.schoolType}</StyledTableCell>
+                <StyledTableCell>
+                  {moment(d.dateStart).format("DD/MM/YYYY")} -{" "}
+                  {d.dateFinish ? moment(d.dateFinish).format("DD/MM/YYYY") : "Present"}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

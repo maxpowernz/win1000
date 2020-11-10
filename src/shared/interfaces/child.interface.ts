@@ -1,3 +1,5 @@
+import { EducationDocument } from "./documents.interface";
+import { Education } from "./education.interface";
 import { Flag } from "./flag.interface";
 
 export interface Child {
@@ -11,7 +13,8 @@ export interface Child {
   flags: Flag[];
   family: any;
   health: any;
-  education: any;
+  education: Education[];
+  educationDocuments: EducationDocument[];
 }
 
 enum Ethnicity {

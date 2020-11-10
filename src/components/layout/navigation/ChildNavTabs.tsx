@@ -19,7 +19,7 @@ function ChildNavTabs({ id }: Props) {
     <Box style={{ backgroundColor: "white" }}>
       <Tabs
         value={value}
-        indicatorColor="primary"
+        indicatorColor="secondary"
         textColor="primary"
         centered
         variant="fullWidth"

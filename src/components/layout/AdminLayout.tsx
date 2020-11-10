@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import SideNavBar from "./navigation/SideNavBar";
 import TopAppBar from "./navigation/TopAppBar";
@@ -6,6 +6,9 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { useAppState } from "../../AppStateContext";
 import { SideBarListItem } from "./navigation/SideBarListItems";
 import ChildHome from "../../pages/child/ChildHome";
+import useLocalStorage from "../../hooks/uselocalStorage";
+import { User } from "../../shared/interfaces/user.interface";
+import Auth from "../Auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +29,7 @@ const switchRoutes = (routes: SideBarListItem[]) => {
 
 export default function MainLayout(): JSX.Element {
   const classes = useStyles();
-  const { state } = useAppState();
+  const { state, dispatch } = useAppState();
 
   return (
     <div className={classes.root}>

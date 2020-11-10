@@ -75,6 +75,7 @@ export default function TopAppBar() {
               <span>{state.selectedChild.firstName + " " + state.selectedChild.lastName}</span>
             )}
           </Typography>
+          <Typography>Kia Ora {state.user?.firstName}</Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />

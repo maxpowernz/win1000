@@ -8,7 +8,7 @@
       "nsn": "29238239383",
       "ethnicity": "Maori",
       "languagesSpoken": ["English", "Maori"],
-      "dateOfBirth": "2010,08,05",
+      "dateOfBirth": "2005,08,05",
       "countryOfBirth": "New Zealand",
       "family": {
         "father": {
@@ -22,7 +22,9 @@
         "careGiver": {
           "firstName": "Aroha",
           "lastName": "Jones",
-          "relationShip": "Aunty"
+          "relationShip": "Aunty",
+          "isMother": false,
+          "isFather": false
         }
       },
       "education": [
@@ -30,19 +32,29 @@
           "schoolId": 1,
           "schoolName": "Love and Learn",
           "schoolType": "ESE",
-          "dateStart": "2011,02,01"
+          "dateStart": "2006,02,01",
+          "dateFinish": "2009,10,22"
         },
         {
           "schoolId": 2,
           "schoolName": "Wanganui East Primary",
           "schoolType": "Primary",
-          "dateStart": "2016,02,01"
+          "dateStart": "2010,02,01",
+          "dateFinish": "2015,12,20"
         },
         {
           "schoolId": 3,
           "schoolName": "Wanganui Intermediate",
           "schoolType": "Intermediate",
-          "dateStart": "2020,02,01"
+          "dateStart": "2016,02,25",
+          "dateFinish": "2018,12,21"
+        },
+        {
+          "schoolId": 4,
+          "schoolName": "Girls College",
+          "schoolType": "High School",
+          "dateStart": "2020,02,01",
+          "dateFinish": null
         }
       ],
       "flags": [
@@ -91,15 +103,37 @@
           "field3": "value3"
         }
       ],
-      "documents": [
+      "educationDocuments": [
         {
-          "name": "document1"
+          "documentName": "enrolment form",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1,
+          "dateUploaded": ""
         },
         {
-          "name": "document2"
+          "documentName": "form 1",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1
         },
         {
-          "name": "document3"
+          "documentName": "form 2",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1
+        },
+        {
+          "documentName": "Document",
+          "uploadedBy": "Person Name",
+          "schoolId": 2
+        },
+        {
+          "documentName": "Document name",
+          "uploadedBy": "Craig Ritani",
+          "schoolId": 4
+        },
+        {
+          "documentName": "Document name",
+          "uploadedBy": "Craig Ritani",
+          "schoolId": 4
         }
       ]
     }

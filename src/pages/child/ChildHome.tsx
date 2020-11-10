@@ -38,9 +38,9 @@ export default function ChildHome() {
 
     console.log(child);
 
-    // if (Object.keys(child).length === 0) {
-    //   history.push("/admin/dashboard");
-    // }
+    if (Object.keys(child).length === 0) {
+      history.push("/admin/dashboard");
+    }
 
     dispatch({ type: "SET_SELECTED_CHILD", payload: child });
   }, []);
