@@ -14,17 +14,20 @@ import Typography from '@material-ui/core/Typography/Typography';
 import Link from '@material-ui/core/Link/Link';
 import Grid from '@material-ui/core/Grid/Grid';
 import Paper from '@material-ui/core/Paper/Paper';
-import AppBar from '@material-ui/core/AppBar/AppBar';
-import Toolbar from '@material-ui/core/Toolbar/Toolbar';
 import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { useHistory } from "react-router-dom";
+import Background from '../Media/pexels-craig-adderley-1835927.jpg';
 
 const loginCardWidth = 350;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      background: `url(${Background})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // background: 'linear-gradient(107.89deg, #009BE5 1.72%, #27AE60 109.59%)', // Gradient
       display: 'flex',
       // flexWrap: 'wrap',
     },
@@ -56,6 +59,9 @@ const useStyles = makeStyles((theme: Theme) =>
     buttons: {
       display: 'flex',
     },
+    formBG:{
+      backgroundColor: '#FFFFFF'
+    },
     layout: {
       width: 'auto',
       marginLeft: theme.spacing(2),
@@ -65,11 +71,6 @@ const useStyles = makeStyles((theme: Theme) =>
         marginLeft: 'auto',
         marginRight: 'auto',
       },
-    },
-    appBar: {
-      // display: 'flex',
-      position: 'static',
-      backgroundColor: theme.palette.primary.main,
     },
     paper: {
       marginTop: theme.spacing(3),
@@ -99,7 +100,6 @@ interface State {
 
 export default function LoginForm() {
   const classes = useStyles();
-  const history = useHistory();
 
   const [values, setValues] = React.useState<State>({
     username: '',
@@ -143,28 +143,19 @@ export default function LoginForm() {
     event.preventDefault();
   };
 
+  const history = useHistory();
+
+
   const handleNext = () => {
-    return history.push(`/admin/`);
+    return history.push(`/admin`);
     // setActiveStep(activeStep + 1);
   };
 
   return (
-    <>
-      <AppBar position="absolute" color="primary" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h4"
-          // color="inherit" 
-          // noWrap
-          >
-            WIN1000
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <div className={classes.root}>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
-            <div className={classes.root}>
-              <div>
+              <div className={classes.formBG}>
                 <Typography
                   className={classes.margin}
                   component="h1"
@@ -233,7 +224,7 @@ export default function LoginForm() {
                     <Typography
                       variant="body2"
                     >
-                      <Link href="#"
+                      <Link href="/admin"
                         // onClick={preventDefault} 
                         color="inherit">
                         {'Forget password'}
@@ -244,7 +235,7 @@ export default function LoginForm() {
                     <Typography
                       variant="body2"
                     >
-                      <Link href="#"
+                      <Link href="/admin"
                         // onClick={preventDefault} 
                         color="inherit">
                         {'No registered yet?'}
@@ -255,7 +246,6 @@ export default function LoginForm() {
                 <Copyright
                 />
               </div>
-            </div>
             { values.isFailed
              ? 
              <Alert severity="error">
@@ -268,6 +258,5 @@ export default function LoginForm() {
           </Paper>
         </main>
       </div>
-    </>
   );
 }
