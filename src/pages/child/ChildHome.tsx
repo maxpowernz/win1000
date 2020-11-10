@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { useAppState } from "../AppStateContext";
+import { useAppState } from "../../AppStateContext";
 import { Route, Switch, useHistory, useParams } from "react-router-dom";
-import { findChildById } from "../utils/childrenUtils";
-import childList from "../mockdata/mockchildren.json";
-import { Child } from "../shared/interfaces/child.interface";
-import PersonalInfo from "./child/PersonalInfo";
-import Family from "./child/Family";
-import Health from "./child/Health";
-import Education from "./child/Education";
-import Agencies from "./child/Agencies";
+import { findChildById } from "../../utils/childrenUtils";
+import childList from "../../mockdata/mockchildren.json";
+import { Child } from "../../shared/interfaces/child.interface";
+import PersonalInfo from "./PersonalInfo";
+import Family from "./Family";
+import Health from "./Health";
+import Education from "./Education";
+import Agencies from "./Agencies";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,7 +23,7 @@ interface QueryParams {
   id: string;
 }
 
-export default function ChildMain() {
+export default function ChildHome() {
   const classes = useStyles();
   const history = useHistory();
   const { dispatch } = useAppState();
@@ -38,9 +38,9 @@ export default function ChildMain() {
 
     console.log(child);
 
-    // if (Object.keys(child).length === 0) {
-    //   history.push("/admin/dashboard");
-    // }
+    if (Object.keys(child).length === 0) {
+      history.push("/admin/dashboard");
+    }
 
     dispatch({ type: "SET_SELECTED_CHILD", payload: child });
   }, []);
@@ -55,11 +55,11 @@ export default function ChildMain() {
   return (
     <div className={classes.root}>
       <Switch>
-        <Route exact path="/admin/childmain/:id" component={PersonalInfo}></Route>
-        <Route path="/admin/childmain/family/:id" component={Family}></Route>
-        <Route path="/admin/childmain/health/:id" component={Health}></Route>
-        <Route path="/admin/childmain/education/:id" component={Education}></Route>
-        <Route path="/admin/childmain/agencies/:id" component={Agencies}></Route>
+        <Route exact path="/admin/child/:id" component={PersonalInfo}></Route>
+        <Route path="/admin/child/family/:id" component={Family}></Route>
+        <Route path="/admin/child/health/:id" component={Health}></Route>
+        <Route path="/admin/child/education/:id" component={Education}></Route>
+        <Route path="/admin/child/agencies/:id" component={Agencies}></Route>
       </Switch>
     </div>
   );

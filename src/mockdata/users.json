@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "firstName": "Marie",
+    "lastName": "Butturini",
+    "role": "admin",
+    "organisationName": "Love and Learn",
+    "schoolId": 1,
+    "agencyId": null
+  },
+  {
+    "userId": 2,
+    "firstName": "agency",
+    "lastName": "user",
+    "role": "agency",
+    "organisationName": "Work and Income",
+    "schoolId": null,
+    "agencyId": 1
+  }
+]

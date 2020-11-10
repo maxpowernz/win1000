@@ -3,6 +3,7 @@ export interface Education {
   schoolName: string;
   schoolType: SchoolType;
   dateStart: string;
+  dateFinish: string;
 }
 
 enum SchoolType {

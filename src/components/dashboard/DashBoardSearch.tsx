@@ -39,7 +39,7 @@ export default function ComboBox() {
   const handleClick = () => {
     console.log(childId);
 
-    return history.push(`/admin/childmain/${childId}`);
+    return history.push(`/admin/child/${childId}`);
   };
   const children: any = childList.children;
 

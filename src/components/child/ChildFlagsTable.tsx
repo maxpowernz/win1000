@@ -6,8 +6,11 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Issue } from "../../shared/interfaces/issue.interface";
+import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
+import { Edit } from "@material-ui/icons";
+import IconButton from "@material-ui/core/IconButton";
+import SimpleDialogDemo from "../dialog-boxes/BaseDialog";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -44,36 +47,36 @@ const useStyles = makeStyles(() =>
   })
 );
 
-interface IssueProps {
-  issues: Issue[];
+interface FlagProps {
+  flags: Flag[];
 }
 
-export default function ChildIssuesTable({ issues }: IssueProps) {
+export default function ChildFlagsTable({ flags }: FlagProps) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Issues" color="red">
+      <TableWrapper heading="Flags" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
               <StyledTableCell>Agency</StyledTableCell>
               <StyledTableCell>Contact</StyledTableCell>
-              <StyledTableCell>Date Opened</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {issues.map((issue: Issue) => (
-              <StyledTableRow key={issue.issueId}>
+            {flags.map((flag: Flag) => (
+              <StyledTableRow key={flag.flagId}>
                 <StyledTableCell component="th" scope="row">
-                  {issue.agencyName}
+                  {flag.agencyName}
                 </StyledTableCell>
-                <StyledTableCell>{issue.contact}</StyledTableCell>
+                <StyledTableCell>{flag.contact}</StyledTableCell>
                 <StyledTableCell>
-                  {moment(issue.dateIssueOpened).format("DD/MM/YYYY")}
+                  {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
-                <StyledTableCell>{issue.issueStatus}</StyledTableCell>
+                <StyledTableCell>{flag.flagStatus}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

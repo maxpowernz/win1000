@@ -1,4 +1,6 @@
-import { Issue } from "./issue.interface";
+import { EducationDocument } from "./documents.interface";
+import { Education } from "./education.interface";
+import { Flag } from "./flag.interface";
 
 export interface Child {
   childId: number;
@@ -8,10 +10,11 @@ export interface Child {
   dateOfBirth: string;
   ethnicity: Ethnicity;
   nsn: string;
-  issues: Issue[];
+  flags: Flag[];
   family: any;
   health: any;
-  education: any;
+  education: Education[];
+  educationDocuments: EducationDocument[];
 }
 
 enum Ethnicity {

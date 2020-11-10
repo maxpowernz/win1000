@@ -6,9 +6,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Health } from "../../shared/interfaces/health.interface";
-import { Education } from "../../shared/interfaces/education.interface";
-import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -33,9 +30,15 @@ const StyledTableRow = withStyles(() =>
   })
 )(TableRow);
 
-// function createData(from: string, subject: string, date: string) {
-//   return { from, subject, date };
-// }
+function createData(from: string, subject: string, date: string) {
+  return { from, subject, date };
+}
+
+const rows = [
+  createData("Craig Ritani", "Subject line", new Date("2020,11,05").toDateString()),
+  createData("Craig Ritani", "Subject line", new Date("2020,10,15").toDateString()),
+  createData("Craig Ritani", "Subject line", new Date("2020,09,05").toDateString()),
+];
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -45,32 +48,28 @@ const useStyles = makeStyles(() =>
   })
 );
 
-interface Props {
-  data: Education[];
-}
-
-export default function ChildEducationTable({ data }: Props) {
+export default function FlagsTable() {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Health" color="primary">
+      <TableWrapper heading="My Flags" color="red">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell>Name</StyledTableCell>
-              <StyledTableCell>Level</StyledTableCell>
-              <StyledTableCell>Date Start</StyledTableCell>
+              <StyledTableCell>From</StyledTableCell>
+              <StyledTableCell>Subject</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((d: Education) => (
-              <StyledTableRow key={d.schoolId}>
+            {rows.map((row) => (
+              <StyledTableRow key={row.date}>
                 <StyledTableCell component="th" scope="row">
-                  {d.schoolName}
+                  {row.from}
                 </StyledTableCell>
-                <StyledTableCell>{d.schoolType}</StyledTableCell>
-                <StyledTableCell>{moment(d.dateStart).format("DD/MM/YYYY")}</StyledTableCell>
+                <StyledTableCell>{row.subject}</StyledTableCell>
+                <StyledTableCell>{row.date}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

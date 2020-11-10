@@ -6,6 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
+import { Flag } from "../../shared/interfaces/flag.interface";
+import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -30,15 +32,9 @@ const StyledTableRow = withStyles(() =>
   })
 )(TableRow);
 
-function createData(from: string, subject: string, date: string) {
-  return { from, subject, date };
-}
-
-const rows = [
-  createData("Craig Ritani", "Subject line", new Date("2020,11,05").toDateString()),
-  createData("Craig Ritani", "Subject line", new Date("2020,10,15").toDateString()),
-  createData("Craig Ritani", "Subject line", new Date("2020,09,05").toDateString()),
-];
+// function createData(from: string, subject: string, date: string) {
+//   return { from, subject, date };
+// }
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -48,28 +44,30 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export default function IssuesTable() {
+interface FlagProps {
+  flags: Flag[];
+}
+
+export default function ChildAgenciesTable({ flags }: FlagProps) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Issues" color="red">
+      <TableWrapper heading="Involved Agencies" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell>From</StyledTableCell>
-              <StyledTableCell>Subject</StyledTableCell>
-              <StyledTableCell>Date</StyledTableCell>
+              <StyledTableCell>Agency</StyledTableCell>
+              <StyledTableCell align="right">Flags</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.date}>
+            {flags.map((flag: Flag) => (
+              <StyledTableRow key={flag.flagId}>
                 <StyledTableCell component="th" scope="row">
-                  {row.from}
+                  {flag.agencyName}
                 </StyledTableCell>
-                <StyledTableCell>{row.subject}</StyledTableCell>
-                <StyledTableCell>{row.date}</StyledTableCell>
+                <StyledTableCell align="right">{Math.floor(Math.random() * 20)}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

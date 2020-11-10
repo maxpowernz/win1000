@@ -8,7 +8,7 @@
       "nsn": "29238239383",
       "ethnicity": "Maori",
       "languagesSpoken": ["English", "Maori"],
-      "dateOfBirth": "2010,08,05",
+      "dateOfBirth": "2005,08,05",
       "countryOfBirth": "New Zealand",
       "family": {
         "father": {
@@ -22,7 +22,9 @@
         "careGiver": {
           "firstName": "Aroha",
           "lastName": "Jones",
-          "relationShip": "Aunty"
+          "relationShip": "Aunty",
+          "isMother": false,
+          "isFather": false
         }
       },
       "education": [
@@ -30,48 +32,58 @@
           "schoolId": 1,
           "schoolName": "Love and Learn",
           "schoolType": "ESE",
-          "dateStart": "2011,02,01"
+          "dateStart": "2006,02,01",
+          "dateFinish": "2009,10,22"
         },
         {
           "schoolId": 2,
           "schoolName": "Wanganui East Primary",
           "schoolType": "Primary",
-          "dateStart": "2016,02,01"
+          "dateStart": "2010,02,01",
+          "dateFinish": "2015,12,20"
         },
         {
           "schoolId": 3,
           "schoolName": "Wanganui Intermediate",
           "schoolType": "Intermediate",
-          "dateStart": "2020,02,01"
+          "dateStart": "2016,02,25",
+          "dateFinish": "2018,12,21"
+        },
+        {
+          "schoolId": 4,
+          "schoolName": "Girls College",
+          "schoolType": "High School",
+          "dateStart": "2020,02,01",
+          "dateFinish": null
         }
       ],
-      "issues": [
+      "flags": [
         {
-          "issueId": 1,
+          "flagId": 1,
           "dateMatterOpened": "2012,02,02",
           "agencyName": "Housing New Zealand",
           "contact": "Mrs Person Name",
-          "issue": "House was not easily accesiable",
+          "flag": "House was not easily accesiable",
           "outcome": "Housing New Zealand found a more accessible house which needed far less modification to suit the family",
-          "issueStatus": "Closed"
+          "flagStatus": "Closed"
         },
         {
-          "issueId": 2,
+          "flagId": 2,
           "dateMatterOpened": "2012,05,02",
           "agencyName": "Work and Income",
           "contact": "Mrs Person Name",
-          "issue": "Getting required entitlements",
+          "flag": "Getting required entitlements",
           "outcome": "Offer of funding for home help with bathing and personal care. The family chose not to accept the home care because they felt there were so many organisations involved in their lives already, and this was one aspect of care they wanted to manage themselves. Instead, funding was found for a gym membership and swimming to strengthen the mother’s back so she could manage this aspect of her child’s care. Other funding was accessed to modify equipment to help the mother lift her child. Housing New Zealand found a more accessible house which needed far less modification to suit the family. Connections were made to link mother and child with support groups and other families. Thanks to the involvement of Barnardos’ Kid Start, special lifting equipment and extra training for caregivers enabled the daughter to participate in early childhood education. Budgeting advice was gained, and arrangements were made for the older children to attend camps, recognising that because of budget and transport constraint they had missed out on these kinds of experiences",
-          "issueStatus": "Closed"
+          "flagStatus": "Closed"
         },
         {
-          "issueId": 3,
+          "flagId": 3,
           "dateMatterOpened": "2012,07,02",
           "agencyName": "District Health Board",
           "contact": "Mrs Person Name",
-          "issue": "Was born a big baby",
+          "flag": "Was born a big baby",
           "outcome": "When the tests came back negative Hine’s size was put down to overfeeding. As the mother was a sole parent with four children, little social and family support and limited finances, she was visited regularly by a Family Start kaitiaki. Hine’s rapid growth continued and the kaitiaki become concerned. She helped the baby’s mum carefully map feeding for a while; this ruled out the overfeeding theory",
-          "issueStatus": "Closed"
+          "flagStatus": "Closed"
         }
       ],
       "health": [
@@ -91,15 +103,37 @@
           "field3": "value3"
         }
       ],
-      "documents": [
+      "educationDocuments": [
         {
-          "name": "document1"
+          "documentName": "enrolment form",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1,
+          "dateUploaded": ""
         },
         {
-          "name": "document2"
+          "documentName": "form 1",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1
         },
         {
-          "name": "document3"
+          "documentName": "form 2",
+          "uploadedBy": "Marie Butturini",
+          "schoolId": 1
+        },
+        {
+          "documentName": "Document",
+          "uploadedBy": "Person Name",
+          "schoolId": 2
+        },
+        {
+          "documentName": "Document name",
+          "uploadedBy": "Craig Ritani",
+          "schoolId": 4
+        },
+        {
+          "documentName": "Document name",
+          "uploadedBy": "Craig Ritani",
+          "schoolId": 4
         }
       ]
     }

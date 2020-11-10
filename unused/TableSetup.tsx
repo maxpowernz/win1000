@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Issue } from "../../shared/interfaces/issue.interface";
+import { flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -49,12 +49,12 @@ interface Props {
   tableHeaderData: any;
 }
 
-export default function ChildIssuesTable({ data, tableHeaderData }: Props) {
+export default function ChildflagsTable({ data, tableHeaderData }: Props) {
   const classes = useStyles();
 
   return (
     <>
-      <TableWrapper heading="Issues" color="red">
+      <TableWrapper heading="flags" color="red">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
@@ -65,16 +65,16 @@ export default function ChildIssuesTable({ data, tableHeaderData }: Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((issue: any) => (
-              <StyledTableRow key={issue.issueId}>
+            {data.map((flag: any) => (
+              <StyledTableRow key={flag.flagId}>
                 <StyledTableCell component="th" scope="row">
-                  {issue.agencyName}
+                  {flag.agencyName}
                 </StyledTableCell>
-                <StyledTableCell>{issue.contact}</StyledTableCell>
+                <StyledTableCell>{flag.contact}</StyledTableCell>
                 <StyledTableCell>
-                  {moment(issue.dateIssueOpened).format("DD/MM/YYYY")}
+                  {moment(flag.dateflagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
-                <StyledTableCell>{issue.issueStatus}</StyledTableCell>
+                <StyledTableCell>{flag.flagStatus}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

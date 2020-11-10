@@ -6,8 +6,9 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { List, Typography, Divider } from "@material-ui/core";
-
+import { Button, Divider, Link, List, ListItem, Typography } from "@material-ui/core";
+import useLocalStorage from "../../../hooks/uselocalStorage";
+import { useHistory } from "react-router-dom";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -49,20 +50,27 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1),
   },
   divider: {
-    // Theme Color, or use css color in quote
-    background: "#5A5A5A",
+    backgroundColor: theme.palette.grey[600],
   },
-  
 }));
 
 export default function SideNavBar() {
   const classes = useStyles();
+  const history = useHistory();
 
   const { state, dispatch } = useAppState();
 
   const handleDrawerClose = () => {
     dispatch({ type: "OPEN_CLOSE_DRAWER", payload: false });
   };
+
+  const handleLogOut = () => {
+    window.localStorage.removeItem("user");
+    dispatch({ type: "SET_LOGGED_IN_STATUS", payload: false });
+
+    history.push("/");
+  };
+
   return (
     <Drawer
       variant="permanent"
@@ -99,6 +107,25 @@ export default function SideNavBar() {
         })}
       </List>
 
+      <Divider className={classes.divider} variant="middle"></Divider>
+      <List className={classes.listItems}>
+        {state.userSideBarListItems.map((item) => {
+          return <NavItem {...item} key={item.title} />;
+        })}
+      </List>
+      <Divider className={classes.divider} variant="middle"></Divider>
+
+      <List className={classes.listItems}>
+        {state.adminSideBarListItems.map((item) => {
+          return <NavItem {...item} key={item.title} />;
+        })}
+      </List>
+
+      <List>
+        <ListItem disableGutters>
+          <Button onClick={handleLogOut}>Log Out</Button>
+        </ListItem>
+      </List>
     </Drawer>
   );
 }

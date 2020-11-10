@@ -2,9 +2,10 @@ import { Dashboard, Domain, LocalHospital, School } from "@material-ui/icons";
 
 import People from "@material-ui/icons/People";
 import Person from "@material-ui/icons/Person";
+import Home from "@material-ui/icons/Home";
 import DashBoardHome from "../../../pages/DashBoardHome";
-import Agencies from "../../../pages/Agencies";
-import PersonalInfo from "../../../pages/PersonalInfo";
+import AgencyList from "../../agency/AgencyList";
+// import PersonalInfo from "../../../pages/PersonalInfo";
 
 export interface SideBarListItem {
   title: string;
@@ -17,44 +18,43 @@ export interface SideBarListItem {
 
 export const sideBarListItems: SideBarListItem[] = [
   {
-    title: "Dashboard",
+    title: "Home",
     path: "/dashboard",
-    icon: Dashboard,
+    icon: Home,
     component: DashBoardHome,
     layout: "/admin",
   },
+  // {
+  //   title: "Personal Info",
+  //   path: "/personal-info",
+  //   icon: Person,
+  //   component: PersonalInfo,
+  //   layout: "/admin",
+  // },
 
-  {
-    title: "Personal Info",
-    path: "/personal-info",
-    icon: Person,
-    component: PersonalInfo,
-    layout: "/admin",
-  },
+  // {
+  //   title: "Whanau",
+  //   path: "/whanau",
+  //   icon: People,
+  //   component: () => "Whanau",
+  //   layout: "/admin",
+  // },
 
-  {
-    title: "Whanau",
-    path: "/whanau",
-    icon: People,
-    component: () => "Whanau",
-    layout: "/admin",
-  },
+  // {
+  //   title: "Health",
+  //   path: "/health",
+  //   icon: LocalHospital,
+  //   component: () => "Health",
+  //   layout: "/admin",
+  // },
 
-  {
-    title: "Health",
-    path: "/health",
-    icon: LocalHospital,
-    component: () => "Health",
-    layout: "/admin",
-  },
-
-  {
-    title: "Education",
-    path: "/education",
-    icon: School,
-    component: () => "Education",
-    layout: "/admin",
-  },
+  // {
+  //   title: "Education",
+  //   path: "/education",
+  //   icon: School,
+  //   component: () => "Education",
+  //   layout: "/admin",
+  // },
 ];
 
 export const adminSideBarListItems: SideBarListItem[] = [
@@ -62,7 +62,7 @@ export const adminSideBarListItems: SideBarListItem[] = [
     title: "Outside Agencies",
     path: "/outside-agencies",
     icon: Domain,
-    component: Agencies,
+    component: AgencyList,
     layout: "/admin",
   },
 ];

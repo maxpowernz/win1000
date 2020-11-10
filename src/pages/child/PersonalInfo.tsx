@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import React from "react";
 import { useAppState } from "../../AppStateContext";
-import ChildIssuesTable from "../../components/dashboard/ChildIssuesTable";
+import ChildFlagsTable from "../../components/child/ChildFlagsTable";
 
 export default function PersonalInfo() {
   const { state, dispatch } = useAppState();
@@ -14,8 +14,8 @@ export default function PersonalInfo() {
       <Typography>Name: {`${firstName} ${middleName} ${lastName}`}</Typography>
       <Typography>Date of Birth: {moment(new Date(dateOfBirth)).format("DD/MM/YYYY")}</Typography>
       <Typography>Age: {moment().diff(dateOfBirth, "years")}</Typography>
-      {state.selectedChild.issues && (
-        <ChildIssuesTable issues={state.selectedChild.issues}></ChildIssuesTable>
+      {state.selectedChild.flags && (
+        <ChildFlagsTable flags={state.selectedChild.flags}></ChildFlagsTable>
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { useAppState } from "../../AppStateContext";
-import ChildIssuesTable from "../../components/dashboard/ChildIssuesTable";
+import ChildAgenciesTable from "../../components/child/ChildAgenciesTable";
+import ChildflagsTable from "../../components/child/ChildFlagsTable";
 
 export default function Agencies() {
   const { state, dispatch } = useAppState();
@@ -8,7 +9,7 @@ export default function Agencies() {
   return (
     <div>
       {state.selectedChild.education && (
-        <ChildIssuesTable issues={state.selectedChild.issues}></ChildIssuesTable>
+        <ChildAgenciesTable flags={state.selectedChild.flags}></ChildAgenciesTable>
       )}
     </div>
   );
