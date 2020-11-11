@@ -74,7 +74,6 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
 
   return (
     <>
-      {console.log(open)}
       <TableWrapper heading="Flags" color="primary">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

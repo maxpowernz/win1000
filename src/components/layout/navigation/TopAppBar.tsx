@@ -19,27 +19,23 @@ const useStyles = makeStyles((theme: Theme) =>
     toolbar: {
       paddingRight: 24, // keep right padding when drawer closed
     },
-
     appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-      transition: theme.transitions.create(["width", "margin"], {
+      transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-
-      minHeight: theme.mixins.toolbar.minHeight,
+      zIndex: theme.zIndex.drawer + 1,
     },
     appBarShift: {
-      marginLeft: drawerWidth,
       width: `calc(100% - ${drawerWidth}px)`,
-
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
     },
     menuButton: {
-      marginRight: 36,
+      marginRight: theme.spacing(2),
     },
     menuButtonHidden: {
       display: "none",
@@ -50,28 +46,28 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function TopAppBar() {
+interface Props {
+  handleDrawerOpen: () => void;
+  open: boolean;
+}
+
+export default function TopAppBar(props: Props) {
   const classes = useStyles();
+  const { open, handleDrawerOpen } = props;
 
-  const { state, dispatch } = useAppState();
+  const { state } = useAppState();
   const history = useHistory();
-
-  const handleDrawerOpen = () => {
-    dispatch({ type: "OPEN_CLOSE_DRAWER", payload: true });
-  };
 
   return (
     <>
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, state.isDrawerOpen && classes.appBarShift)}>
+      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, state.isDrawerOpen && classes.menuButtonHidden)}>
+            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
             <MenuIcon />
           </IconButton>
           <Typography component="h5" variant="h5" color="inherit" noWrap className={classes.title}>

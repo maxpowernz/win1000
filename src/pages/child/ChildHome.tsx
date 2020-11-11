@@ -5,7 +5,7 @@ import { Route, Switch, useHistory, useParams } from "react-router-dom";
 import { findChildById } from "../../utils/childrenUtils";
 import childList from "../../mockdata/mockchildren.json";
 import { Child } from "../../shared/interfaces/child.interface";
-import PersonalInfo from "./PersonalInfo";
+import ChildPersonalInfo from "./ChildPersonalInfo";
 import Family from "./Family";
 import Health from "./Health";
 import Education from "./Education";
@@ -56,7 +56,7 @@ export default function ChildHome() {
   return (
     <div className={classes.root}>
       <Switch>
-        <Route exact path="/admin/child/:id" component={PersonalInfo}></Route>
+        <Route exact path="/admin/child/:id" component={ChildPersonalInfo}></Route>
         <Route path="/admin/child/family/:id" component={Family}></Route>
         <Route path="/admin/child/health/:id" component={Health}></Route>
         <Route path="/admin/child/education/:id" component={Education}></Route>

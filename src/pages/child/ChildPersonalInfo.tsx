@@ -5,7 +5,7 @@ import { useAppState } from "../../AppStateContext";
 import ChildFlagsTable from "../../components/child/ChildFlagsTable";
 import PersonalDocumentsTable from "../../components/child/PersonalDocumentsTable";
 
-export default function PersonalInfo() {
+export default function ChildPersonalInfo() {
   const { state } = useAppState();
 
   const { firstName, lastName, middleName, dateOfBirth, ethnicity } = state.selectedChild;

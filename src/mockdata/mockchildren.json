@@ -146,17 +146,6 @@
       ],
       "educationDocuments": [
         {
-          "documentName": "Birth Certificate",
-          "uploadedBy": "Marie Butturini",
-          "schoolId": 1,
-          "dateUploaded": ""
-        },
-        {
-          "documentName": "Immunisation",
-          "uploadedBy": "Marie Butturini",
-          "schoolId": 1
-        },
-        {
           "documentName": "form 2",
           "uploadedBy": "Marie Butturini",
           "schoolId": 1
@@ -180,6 +169,24 @@
       "personalDocuments": [
         {
           "documentName": "Birth Certificate"
+        },
+        {
+          "documentName": "Passport"
+        },
+        {
+          "documentName": "Passport"
+        },
+        {
+          "documentName": "Passport"
+        },
+        {
+          "documentName": "Passport"
+        },
+        {
+          "documentName": "Passport"
+        },
+        {
+          "documentName": "Passport"
         },
         {
           "documentName": "Passport"

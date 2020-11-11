@@ -5,6 +5,7 @@ import theme from "./theme";
 import AdminLayout from "./components/layout/AdminLayout";
 import HomePage from "./pages/HomePage";
 import Auth from "./components/Auth";
+import PersistentDrawerLeft from "./components/layout/navigation/TestSideDrawer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Auth>
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/admin/test" component={PersistentDrawerLeft} />
             <Route path="/admin" component={AdminLayout} />
           </Switch>
         </Auth>
