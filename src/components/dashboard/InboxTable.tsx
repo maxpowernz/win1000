@@ -69,7 +69,7 @@ export default function InboxTable() {
               </TableHead>
               <TableBody>
                 {rows.map((row) => (
-                  <StyledTableRow key={row.from}>
+                  <StyledTableRow key={row.from + row.date}>
                     <StyledTableCell component="th" scope="row">
                       {row.from}
                     </StyledTableCell>

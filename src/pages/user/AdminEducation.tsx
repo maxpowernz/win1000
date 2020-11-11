@@ -4,8 +4,6 @@ import React from "react";
 interface Props {}
 
 function AdminEducation(props: Props) {
-  const {} = props;
-
   return (
     <>
       <Typography variant="h5" gutterBottom>

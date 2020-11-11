@@ -1,10 +1,9 @@
 import React from "react";
 import { useAppState } from "../../AppStateContext";
 import ChildAgenciesTable from "../../components/child/ChildAgenciesTable";
-import ChildflagsTable from "../../components/child/ChildFlagsTable";
 
 export default function Agencies() {
-  const { state, dispatch } = useAppState();
+  const { state } = useAppState();
 
   return (
     <div>

@@ -6,10 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
-import { Health } from "../../shared/interfaces/health.interface";
 import { Education } from "../../shared/interfaces/education.interface";
 import moment from "moment";
-import FlagDialog from "./FlagDialog";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({

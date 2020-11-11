@@ -1,56 +1,96 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { Button, Divider, Link, List, ListItem, Typography } from "@material-ui/core";
-import useLocalStorage from "../../../hooks/uselocalStorage";
+import { Button, Divider, List, ListItem, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import { User } from "../../../shared/interfaces/user.interface";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-  drawerPaper: {
-    position: "relative",
-    whiteSpace: "nowrap",
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    backgroundColor: "#18202C",
-  },
-  toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    minHeight: theme.mixins.toolbar.minHeight,
-    backgroundColor: "#232F3E",
-    color: "white",
-    paddingLeft: theme.spacing(3),
-  },
-  drawerPaperClose: {
-    overflowX: "hidden",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: "4rem",
-  },
-  closeIcon: {
-    color: theme.palette.grey[50],
-  },
-  listItems: {
-    paddingLeft: theme.spacing(1),
-  },
-  divider: {
-    backgroundColor: theme.palette.grey[600],
-  },
-}));
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    drawerPaper: {
+      position: "relative",
+      whiteSpace: "nowrap",
+      width: drawerWidth,
+      transition: theme.transitions.create("width", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      backgroundColor: "#18202C",
+    },
+    toolbarIcon: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      minHeight: theme.mixins.toolbar.minHeight,
+      backgroundColor: "#232F3E",
+      color: "white",
+      paddingLeft: theme.spacing(3),
+    },
+    drawerPaperClose: {
+      overflowX: "hidden",
+      transition: theme.transitions.create("width", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      width: "4rem",
+    },
+    closeIcon: {
+      color: theme.palette.grey[50],
+    },
+    listItems: {
+      paddingLeft: theme.spacing(1),
+    },
+    divider: {
+      backgroundColor: theme.palette.grey[600],
+    },
+  })
+);
+
+// const useStyles = makeStyles((theme) => (
+//   {
+//   drawerPaper: {
+//     position: "relative",
+//     whiteSpace: "nowrap",
+//     width: drawerWidth,
+//     transition: theme.transitions.create("width", {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//     backgroundColor: "#18202C",
+//   },
+//   toolbarIcon: {
+//     display: "flex",
+//     alignItems: "center",
+//     justifyContent: "space-between",
+//     minHeight: theme.mixins.toolbar.minHeight,
+//     backgroundColor: "#232F3E",
+//     color: "white",
+//     paddingLeft: theme.spacing(3),
+//   },
+//   drawerPaperClose: {
+//     overflowX: "hidden",
+//     transition: theme.transitions.create("width", {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.leavingScreen,
+//     }),
+//     width: "4rem",
+//   },
+//   closeIcon: {
+//     color: theme.palette.grey[50],
+//   },
+//   listItems: {
+//     paddingLeft: theme.spacing(1),
+//   },
+//   divider: {
+//     backgroundColor: theme.palette.grey[600],
+//   },
+// }));
 
 export default function SideNavBar() {
   const classes = useStyles();

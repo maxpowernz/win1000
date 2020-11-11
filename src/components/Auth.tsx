@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useAppState } from "../AppStateContext";
-import useLocalStorage from "../hooks/uselocalStorage";
 import { User } from "../shared/interfaces/user.interface";
 
 function Auth(props: any) {

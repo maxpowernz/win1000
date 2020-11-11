@@ -31,7 +31,7 @@
         {
           "schoolId": 1,
           "schoolName": "Love and Learn",
-          "schoolType": "ESE",
+          "schoolType": "ECE",
           "dateStart": "2006,02,01",
           "dateFinish": "2009,10,22"
         },
@@ -81,7 +81,7 @@
           "agencyName": "Work and Income",
           "contact": "Mrs Person Name",
           "flagDescription": "Getting required entitlements",
-          "outcome": "Offer of funding for home help with bathing and personal care. The family chose not to accept the home care because they felt there were so many organisations involved in their lives already, and this was one aspect of care they wanted to manage themselves. Instead, funding was found for a gym membership and swimming to strengthen the mother’s back so she could manage this aspect of her child’s care Other funding was accessed to modify equipment to help the mother lift her child.\n\nHousing New Zealand found a more accessible house which needed far less modification to suit the family. Connections were made to link mother and child with support groups and other families. Thanks to the involvement of Barnardos’ Kid Start, special lifting equipment and extra training for caregivers enabled the daughter to participate in early childhood education. Budgeting advice was gained, and arrangements were made for the older children to attend camps, recognising that because of budget and transport constraint they had missed out on these kinds of experiences",
+          "outcome": "Offer of funding for home help with bathing and personal care. The family chose not to accept the home care because they felt there were so many organisations involved in their lives already, and this was one aspect of care they wanted to manage themselves. Instead, funding was found for a gym membership and swimming to strengthen the mother’s back so she could manage this aspect of her child’s care Other funding was accessed to modify equipment to help the mother lift her child. Housing New Zealand found a more accessible house which needed far less modification to suit the family. Connections were made to link mother and child with support groups and other families. Thanks to the involvement of Barnardos’ Kid Start, special lifting equipment and extra training for caregivers enabled the daughter to participate in early childhood education. Budgeting advice was gained, and arrangements were made for the older children to attend camps, recognising that because of budget and transport constraint they had missed out on these kinds of experiences",
           "flagStatus": "Closed"
         },
         {
@@ -111,34 +111,48 @@
           "flagDescription": "Was born a big baby",
           "outcome": "When the tests came back negative Hine’s size was put down to overfeeding. As the mother was a sole parent with four children, little social and family support and limited finances, she was visited regularly by a Family Start kaitiaki. Hine’s rapid growth continued and the kaitiaki become concerned. She helped the baby’s mum carefully map feeding for a while; this ruled out the overfeeding theory",
           "flagStatus": "Closed"
+        },
+        {
+          "flagId": 5,
+          "agencyId": 5,
+          "schoolId": 1,
+          "contactNumber": "020 000 000",
+
+          "privacyStatus": "Private",
+          "dateMatterOpened": "2020,07,02",
+          "agencyName": "Ministry of Justice",
+          "contact": "Mr Police Man",
+          "flagDescription": "Domestic Violence",
+          "outcome": "When the tests came back negative Hine’s size was put down to overfeeding. As the mother was a sole parent with four children, little social and family support and limited finances, she was visited regularly by a Family Start kaitiaki. Hine’s rapid growth continued and the kaitiaki become concerned. She helped the baby’s mum carefully map feeding for a while; this ruled out the overfeeding theory",
+          "flagStatus": "Active"
         }
       ],
       "health": [
         {
-          "field1": "value",
-          "field2": "value2",
+          "field1": "Allergie",
+          "field2": "Peanuts",
           "field3": "value3"
         },
         {
-          "field1": "value",
-          "field2": "value2",
+          "field1": "Vision",
+          "field2": "Poor",
           "field3": "value3"
         },
         {
-          "field1": "value",
-          "field2": "value2",
+          "field1": "Hearing",
+          "field2": "Good",
           "field3": "value3"
         }
       ],
       "educationDocuments": [
         {
-          "documentName": "enrolment form",
+          "documentName": "Birth Certificate",
           "uploadedBy": "Marie Butturini",
           "schoolId": 1,
           "dateUploaded": ""
         },
         {
-          "documentName": "form 1",
+          "documentName": "Immunisation",
           "uploadedBy": "Marie Butturini",
           "schoolId": 1
         },
@@ -161,6 +175,25 @@
           "documentName": "Document name",
           "uploadedBy": "Craig Ritani",
           "schoolId": 4
+        }
+      ],
+      "personalDocuments": [
+        {
+          "documentName": "Birth Certificate"
+        },
+        {
+          "documentName": "Passport"
+        }
+      ],
+      "healthDocuments": [
+        {
+          "documentName": "Immunisations"
+        },
+        {
+          "documentName": "Hearing"
+        },
+        {
+          "documentName": "Vision"
         }
       ]
     }

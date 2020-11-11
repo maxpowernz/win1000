@@ -11,9 +11,6 @@ import { InsertDriveFile } from "@material-ui/icons";
 import { Education } from "../../shared/interfaces/education.interface";
 import { TableFooter } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
-import { User } from "../../shared/interfaces/user.interface";
-import { useAppState } from "../../AppStateContext";
-import { EducationDocument } from "../../shared/interfaces/documents.interface";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -53,39 +50,10 @@ const useStyles = makeStyles(() =>
 interface Props {
   data: Education[];
   heading: string;
-  user: User;
 }
 
-export default function DocumentsTable({ data, heading, user }: Props) {
+export default function HealthDocumentsTable({ data, heading }: Props) {
   const classes = useStyles();
-
-  const { state } = useAppState();
-
-  // const makeRows = () => {
-  //   const rows: any = [];
-
-  //   data.forEach((d) =>
-  //     d.documents.map((v) =>
-  //       rows.push(
-  //         <StyledTableRow>
-  //           <StyledTableCell>{d.schoolName}</StyledTableCell>
-  //           <StyledTableCell>{v.uploadedBy}</StyledTableCell>
-  //           <StyledTableCell>
-  //             <InsertDriveFile style={{ color: red[900] }} /> {v.documentName}
-  //           </StyledTableCell>
-  //         </StyledTableRow>
-  //       )
-  //     )
-  //   );
-
-  //   return rows;
-  // };
-
-  const getSchoolName = (id: number) => {
-    const schoolName = state.selectedChild.education.find((s) => s.schoolId === id)?.schoolName;
-
-    return schoolName;
-  };
 
   const upload = () => {};
 
@@ -95,19 +63,16 @@ export default function DocumentsTable({ data, heading, user }: Props) {
         <Table className={classes.table} aria-label="customized table" size="small">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell width={"40%"}>School</StyledTableCell>
-              <StyledTableCell width={"35%"}>Uploaded By</StyledTableCell>
-              <StyledTableCell width={"25%"}>Document Name</StyledTableCell>
+              <StyledTableCell>Document Name</StyledTableCell>
             </TableRow>
           </TableHead>
 
           <TableBody>
-            {state.selectedChild.educationDocuments.map((document: EducationDocument) => (
+            {data.map((document: any) => (
               <>
                 <StyledTableRow>
-                  <StyledTableCell>{getSchoolName(document.schoolId)}</StyledTableCell>
-                  <StyledTableCell>{document.uploadedBy}</StyledTableCell>
                   <StyledTableCell>
+                    {" "}
                     <InsertDriveFile style={{ color: red[900] }} fontSize="small" />{" "}
                     {document.documentName}
                   </StyledTableCell>

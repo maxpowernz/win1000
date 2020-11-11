@@ -4,8 +4,6 @@ import React from "react";
 interface Props {}
 
 function Uploaddummy(props: Props) {
-  const {} = props;
-
   return (
     <>
       <input type="file" value="filename.pdf" />

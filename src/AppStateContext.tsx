@@ -1,14 +1,10 @@
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { adminSideBarListItems } from "./components/layout/navigation/AdminSideBarListItems";
 import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
 import { userSideBarListItems } from "./components/layout/navigation/UserSideBarListItems";
-import useLocalStorage from "./hooks/uselocalStorage";
-
 import { Child } from "./shared/interfaces/child.interface";
 import { EducationDocument } from "./shared/interfaces/documents.interface";
-import { Flag } from "./shared/interfaces/flag.interface";
 import { User } from "./shared/interfaces/user.interface";
-import flags from "./mockdata/flags.json";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 

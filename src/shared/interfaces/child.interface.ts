@@ -15,6 +15,8 @@ export interface Child {
   health: any;
   education: Education[];
   educationDocuments: EducationDocument[];
+  personalDocuments: any;
+  healthDocuments: any;
 }
 
 enum Ethnicity {

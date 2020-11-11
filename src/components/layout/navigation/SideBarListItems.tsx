@@ -1,10 +1,5 @@
-import { Dashboard, Domain, LocalHospital, School } from "@material-ui/icons";
-
-import People from "@material-ui/icons/People";
-import Person from "@material-ui/icons/Person";
 import Home from "@material-ui/icons/Home";
 import DashBoardHome from "../../../pages/DashBoardHome";
-import PersonalInfo from "../../../pages/PersonalInfo";
 
 export interface SideBarListItem {
   title: string;

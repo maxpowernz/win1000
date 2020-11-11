@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Flag } from "../../shared/interfaces/flag.interface";
 import moment from "moment";
-import { Edit, Pageview, Visibility, VisibilityOff } from "@material-ui/icons";
+import { Pageview, Visibility, VisibilityOff } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import FlagDialog from "./FlagDialog";
 import { useAppState } from "../../AppStateContext";

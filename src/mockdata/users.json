@@ -10,9 +10,9 @@
   },
   {
     "userId": 2,
-    "firstName": "agency",
-    "lastName": "user",
-    "role": "agency",
+    "firstName": "Mary",
+    "lastName": "Jones",
+    "role": "user",
     "organisationName": "Work and Income",
     "schoolId": null,
     "agencyId": 1

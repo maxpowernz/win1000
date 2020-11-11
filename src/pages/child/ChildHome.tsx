@@ -43,6 +43,7 @@ export default function ChildHome() {
     }
 
     dispatch({ type: "SET_SELECTED_CHILD", payload: child });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //page load it will show tabs, page leave it will hide tabs

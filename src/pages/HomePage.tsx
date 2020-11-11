@@ -1,10 +1,8 @@
-import Button from "@material-ui/core/Button";
 import React, { useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useAppState } from "../AppStateContext";
-import useLocalStorage from "../hooks/uselocalStorage";
+import LoginForm from "../components/login/LoginForm";
 import users from "../mockdata/users.json";
-import { User } from "../shared/interfaces/user.interface";
 
 function HomePage() {
   const { state, dispatch } = useAppState();
@@ -25,12 +23,9 @@ function HomePage() {
 
   return (
     <>
-      {console.log("home")}
-      {state.userLoggedIn && <Redirect to="/admin" />}
+      {state.userLoggedIn && <Redirect to="/admin/dashboard" />}
       <div style={{ padding: 20 }}>
-        <Button onClick={() => handleClick()} variant="contained" color="secondary">
-          Log in
-        </Button>
+        <LoginForm handleLogin={handleClick} />
       </div>
     </>
   );

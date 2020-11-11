@@ -1,12 +1,10 @@
 import React from "react";
 import { useAppState } from "../../AppStateContext";
 import ChildEducationTable from "../../components/child/ChildEducationTable";
-import ChildHealthTable from "../../components/child/ChildHealthTable";
 import DocumentsTable from "../../components/child/DocumentsTable";
-import MultipleDetailPanels from "./DetailTable";
 
 export default function Education() {
-  const { state, dispatch } = useAppState();
+  const { state } = useAppState();
 
   return (
     <div>
