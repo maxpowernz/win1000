@@ -117,7 +117,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
       agencyId: state.user.organisationId ? state.user.organisationId : "missing",
       schoolId: state.user.schoolId ? state.user.schoolId : "missing",
       agencyName: state.user.organisationName,
-      contact: state.user.firstName + state.user.lastName,
+      contact: state.user.firstName + " " + state.user.lastName,
       privacyStatus: "missing",
       contactNumber: "missing",
     })
@@ -131,7 +131,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
       agencyId: state.user.organisationId ? state.user.organisationId : "missing",
       schoolId: state.user.schoolId ? state.user.schoolId : "missing",
       agencyName: state.user.organisationName,
-      contact: state.user.firstName + state.user.lastName,
+      contact: state.user.firstName + " " + state.user.lastName,
       privacyStatus: "missing",
       contactNumber: "missing",
     }) 
@@ -200,7 +200,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
               <StyledTableCell>Date</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
               <StyledTableCell>Description</StyledTableCell>
-              <StyledTableCell>Outcome</StyledTableCell>
+              {/* <StyledTableCell>Outcome</StyledTableCell> */}
               <StyledTableCell>Delete</StyledTableCell>
               <StyledTableCell>Edit</StyledTableCell>
             </TableRow>
@@ -217,7 +217,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                 </StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
                 <StyledTableCell>{flag.flagDescription}</StyledTableCell>
-                <StyledTableCell>{flag.outcome}</StyledTableCell>
+                {/* <StyledTableCell>{flag.outcome}</StyledTableCell> */}
                 <StyledTableCell>
                   <IconButton
                     color="secondary"
