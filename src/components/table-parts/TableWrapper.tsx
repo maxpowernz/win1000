@@ -8,7 +8,7 @@ export default function TableWrapper(props: any) {
     <>
       <Box my={4}>
         <Paper>
-          <TableHeading heading={props.heading} color={props.color} />
+          <TableHeading heading={props.heading} color={props.color}  onAdd = {props.onAdd}/>
           <Box paddingX={4} paddingY={2}>
             {props.children}
           </Box>
