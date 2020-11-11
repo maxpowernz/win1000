@@ -16,8 +16,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import FormHelperText from "@material-ui/core/FormHelperText/FormHelperText";
 import { Alert, AlertTitle } from "@material-ui/lab";
-//import { useHistory } from "react-router-dom";
-//import Background from "../Media/pexels-craig-adderley-1835927.jpg";
+import Background from "../../Media/pexels-craig-adderley-1835927.jpg";
+import RealMeLogo from "../../Media/realme.jpg";
 import { useAppState } from "../../AppStateContext";
 import { Redirect } from "react-router-dom";
 
@@ -26,11 +26,13 @@ const loginCardWidth = 350;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      //   background: `url(${Background})`,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
+      background: `url(${Background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
       // background: 'linear-gradient(107.89deg, #009BE5 1.72%, #27AE60 109.59%)', // Gradient
       display: "flex",
+      height: "100vh",
+      alignItems: "center",
       // flexWrap: 'wrap',
     },
     margin: {
@@ -145,13 +147,6 @@ export default function LoginForm(props: any) {
     event.preventDefault();
   };
 
-  // const handleNext = () => {
-  //   const user: any = users.find((u: any) => u.userId === 1);
-  //   dispatch({ type: "SET_USER", payload: user });
-  //   dispatch({ type: "SET_LOGGED_IN_STATUS", payload: true });
-  //   window.localStorage.setItem("user", JSON.stringify(user));
-  // };
-
   return (
     <>
       {state.userLoggedIn && <Redirect to="/admin" />}
@@ -219,28 +214,22 @@ export default function LoginForm(props: any) {
                 onClick={handleLogin}>
                 Login
               </Button>
-              <Grid className={classes.margin} container>
-                <Grid item xs={6}>
+              <Grid item container alignContent="center" justify="center">
+                <img src={RealMeLogo} width="100" alt="logo" />
+              </Grid>
+              <Grid className={classes.margin} container justify="center">
+                <Grid justify="center">
                   <Typography variant="body2">
                     <Link
                       href="/admin"
                       // onClick={preventDefault}
                       color="inherit">
-                      {"Forget password"}
-                    </Link>
-                  </Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body2">
-                    <Link
-                      href="/admin"
-                      // onClick={preventDefault}
-                      color="inherit">
-                      {"No registered yet?"}
+                      {"Forgot password?"}
                     </Link>
                   </Typography>
                 </Grid>
               </Grid>
+
               <Copyright />
             </div>
             {values.isFailed ? (

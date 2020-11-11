@@ -6,7 +6,7 @@ interface Props {}
 function UserFlags(props: Props) {
   return (
     <Typography variant="h5">
-      this page is where you can add and edit flags for your organisation
+      This page will contain all the flags that you have created, and you can add and edit flags
     </Typography>
   );
 }

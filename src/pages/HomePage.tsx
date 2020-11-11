@@ -24,9 +24,7 @@ function HomePage() {
   return (
     <>
       {state.userLoggedIn && <Redirect to="/admin/dashboard" />}
-      <div style={{ padding: 20 }}>
-        <LoginForm handleLogin={handleClick} />
-      </div>
+      <LoginForm handleLogin={handleClick} />
     </>
   );
 }

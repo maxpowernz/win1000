@@ -23,7 +23,7 @@ function DashBoardHome() {
           alignItems="flex-end"
           justify="space-around"
           style={{ fontSize: 16 }}>
-          <Avatar style={{ padding: 30 }}>
+          <Avatar style={{ padding: 25 }}>
             <Typography variant="h4">
               {state.user.userId && state.user.firstName.substring(0, 1)}
             </Typography>

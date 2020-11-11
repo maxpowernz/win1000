@@ -56,8 +56,8 @@ export default function ChildHealthTable({ data }: Props) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow style={{ height: 1 }}>
-              <StyledTableCell>Field 1</StyledTableCell>
-              <StyledTableCell>Field 2</StyledTableCell>
+              <StyledTableCell>Subject</StyledTableCell>
+              <StyledTableCell>Value</StyledTableCell>
               <StyledTableCell>Field 3</StyledTableCell>
             </TableRow>
           </TableHead>
