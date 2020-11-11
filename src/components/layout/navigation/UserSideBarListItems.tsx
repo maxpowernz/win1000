@@ -3,17 +3,8 @@ import Person from "@material-ui/icons/Person";
 import Flag from "@material-ui/icons/Flag";
 import UserMessages from "../../../pages/user/UserMessages";
 import UserProfile from "../../../pages/user/UserProfile";
-//import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import UserFlags from "../../../pages/user/UserFlags";
-
-export interface SideBarListItem {
-  title: string;
-  path: string;
-  icon: any;
-  component: any;
-  layout?: string;
-  section?: string;
-}
+import { SideBarListItem } from "../../../shared/interfaces/sideBarListItem.interface";
 
 export const userSideBarListItems: SideBarListItem[] = [
   {

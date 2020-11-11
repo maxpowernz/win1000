@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, ListItem, makeStyles } from "@material-ui/core";
-import { SideBarListItem } from "./SideBarListItems";
+import { SideBarListItem } from "../../../shared/interfaces/sideBarListItem.interface";
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 8px",
     width: "100%",
     color: theme.palette.grey[50],
+    "&:hover": {
+      color: theme.palette.primary.light,
+    },
   },
   icon: {
     marginRight: theme.spacing(2),
@@ -30,19 +33,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavItem = ({ path, icon: Icon, title, layout }: SideBarListItem) => {
+const NavItem = ({ path, icon: Icon, title, layout, onClick }: SideBarListItem) => {
   const classes = useStyles();
 
   return (
     <ListItem className={classes.item} disableGutters>
-      <Button
-        activeClassName={classes.active}
-        className={classes.button}
-        component={NavLink}
-        to={layout + path}>
-        <Icon className={classes.icon} />
-        <span className={classes.title}>{title}</span>
-      </Button>
+      {!onClick ? (
+        <Button
+          activeClassName={classes.active}
+          className={classes.button}
+          component={NavLink}
+          to={layout + path}>
+          <Icon className={classes.icon} />
+          <span className={classes.title}>{title}</span>
+        </Button>
+      ) : (
+        <Button className={classes.button} onClick={onClick}>
+          <Icon className={classes.icon} />
+          <span className={classes.title}>{title}</span>
+        </Button>
+      )}
     </ListItem>
   );
 };

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAppState } from "../AppStateContext";
 import { User } from "../shared/interfaces/user.interface";
 
-function Auth(props: any) {
+function Auth(props: React.PropsWithChildren<{}>) {
   const { state, dispatch } = useAppState();
   const history = useHistory();
 
@@ -13,7 +13,6 @@ function Auth(props: any) {
     console.log("auth useffect 1");
 
     if (user) {
-      //dispatch({ type: "SET_LOGGED_IN_STATUS", payload: true });
       dispatch({ type: "SET_USER", payload: JSON.parse(user) as User });
     }
   }, [dispatch, user]);

@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { adminSideBarListItems } from "./components/layout/navigation/AdminSideBarListItems";
-import { SideBarListItem, sideBarListItems } from "./components/layout/navigation/SideBarListItems";
+import { sideBarListItems } from "./components/layout/navigation/SideBarListItems";
 import { userSideBarListItems } from "./components/layout/navigation/UserSideBarListItems";
 import { Child } from "./shared/interfaces/child.interface";
 import { EducationDocument } from "./shared/interfaces/documents.interface";
+import { SideBarListItem } from "./shared/interfaces/sideBarListItem.interface";
 import { User } from "./shared/interfaces/user.interface";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);

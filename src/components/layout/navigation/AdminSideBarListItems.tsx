@@ -2,15 +2,7 @@ import Business from "@material-ui/icons/Business";
 import School from "@material-ui/icons/School";
 import AdminAgencies from "../../../pages/user/AdminAgenices";
 import AdminEducation from "../../../pages/user/AdminEducation";
-
-export interface SideBarListItem {
-  title: string;
-  path: string;
-  icon: any;
-  component: any;
-  layout?: string;
-  section?: string;
-}
+import { SideBarListItem } from "../../../shared/interfaces/sideBarListItem.interface";
 
 export const adminSideBarListItems: SideBarListItem[] = [
   {

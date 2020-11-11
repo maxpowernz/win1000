@@ -9,6 +9,7 @@ import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
 import { Button, Divider, List, ListItem, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
 const drawerWidth = 240;
 
@@ -91,6 +92,8 @@ export default function SideNavBar(props: Props) {
     history.push("/");
   };
 
+  const h = () => <p>asfasf</p>;
+
   return (
     <Drawer
       variant="permanent"
@@ -138,13 +141,10 @@ export default function SideNavBar(props: Props) {
           </List>
         </>
       )}
+      <Divider className={classes.divider} variant="middle"></Divider>
 
-      <List>
-        <ListItem>
-          <Button onClick={handleLogOut} variant="contained" color="secondary">
-            Log Out
-          </Button>
-        </ListItem>
+      <List className={classes.listItems}>
+        <NavItem onClick={handleLogOut} path="/" title="Log Out" icon={PowerSettingsNewIcon} />
       </List>
     </Drawer>
   );

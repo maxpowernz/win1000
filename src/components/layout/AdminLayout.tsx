@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Container, createStyles, makeStyles } from "@material-ui/core";
+import { Container, createStyles, makeStyles, useTheme } from "@material-ui/core";
 import SideNavBar from "./navigation/SideNavBar";
 import TopAppBar from "./navigation/TopAppBar";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { useAppState } from "../../AppStateContext";
-import { SideBarListItem } from "./navigation/SideBarListItems";
 import ChildHome from "../../pages/child/ChildHome";
 import clsx from "clsx";
+import { SideBarListItem } from "../../shared/interfaces/sideBarListItem.interface";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -30,6 +31,8 @@ export default function MainLayout(): JSX.Element {
   const classes = useStyles();
   const { state } = useAppState();
   const [open, setOpen] = useState(true);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xs"));
 
   const handleDrawerOpen = () => {
     setOpen(!open);
@@ -37,9 +40,9 @@ export default function MainLayout(): JSX.Element {
 
   return (
     <div className={classes.root}>
-      <TopAppBar handleDrawerOpen={handleDrawerOpen} open={open} />
+      <TopAppBar handleDrawerOpen={handleDrawerOpen} open={open && !matches} />
 
-      <SideNavBar handleDrawerOpen={handleDrawerOpen} open={open} />
+      <SideNavBar handleDrawerOpen={handleDrawerOpen} open={open && !matches} />
 
       <Container>
         <div className={classes.content}>
@@ -47,7 +50,6 @@ export default function MainLayout(): JSX.Element {
             <Route path="/admin/child/:id" component={ChildHome}></Route>
             {switchRoutes(state.sideBarListItems)}
             {switchRoutes(state.userSideBarListItems)}
-
             {state.user.role === "admin" && switchRoutes(state.adminSideBarListItems)}
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
