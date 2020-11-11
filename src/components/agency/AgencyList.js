@@ -1,27 +1,27 @@
-import React from 'react';
-import { forwardRef } from 'react';
+import React from "react";
+import { forwardRef } from "react";
 import MaterialTable from "material-table";
-import AgencyEmployeeList from './AgencyEmployeeList';
+import AgencyEmployeeList from "./AgencyEmployeeList";
 import { ThemeProvider } from "@material-ui/core";
-import theme from '../../theme';
+import theme from "../../theme";
 
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
-import Check from '@material-ui/icons/Check';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn';
-import edit from '@material-ui/icons/Edit';
-import deleteIcon from '@material-ui/icons/Delete';
+import AddBox from "@material-ui/icons/AddBox";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
+import Check from "@material-ui/icons/Check";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import ChevronRight from "@material-ui/icons/ChevronRight";
+import Clear from "@material-ui/icons/Clear";
+import DeleteOutline from "@material-ui/icons/DeleteOutline";
+import Edit from "@material-ui/icons/Edit";
+import FilterList from "@material-ui/icons/FilterList";
+import FirstPage from "@material-ui/icons/FirstPage";
+import LastPage from "@material-ui/icons/LastPage";
+import Remove from "@material-ui/icons/Remove";
+import SaveAlt from "@material-ui/icons/SaveAlt";
+import Search from "@material-ui/icons/Search";
+import ViewColumn from "@material-ui/icons/ViewColumn";
+import edit from "@material-ui/icons/Edit";
+import deleteIcon from "@material-ui/icons/Delete";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -40,11 +40,10 @@ const tableIcons = {
   Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
   SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
 
 export default function AgencyList() {
- 
   return (
     <div style={{ maxWidth: "100%" }}>
       <ThemeProvider theme={theme}>
@@ -57,7 +56,7 @@ export default function AgencyList() {
             {
               title: "User Count",
               field: "usersInvolved",
-              type: "numeric"
+              type: "numeric",
               // lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
             },
           ]}
@@ -125,36 +124,35 @@ export default function AgencyList() {
           ]}
           actions={[
             {
-              icon:AddBox,
-              tooltip: 'Add User',
+              icon: AddBox,
+              tooltip: "Add User",
               isFreeAction: true,
-              onClick: (event) => alert("You want to add a new row")
+              onClick: (event) => alert("You want to add a new row"),
             },
             {
               icon: edit,
-              tooltip: 'Edit agency information',
-              onClick: (event, rowData) => alert("Edit agency detail " + rowData.name)
+              tooltip: "Edit agency information",
+              onClick: (event, rowData) => alert("Edit agency detail " + rowData.name),
             },
             {
               icon: deleteIcon,
-              tooltip: 'Delete agency',
-              onClick: (event, rowData) => alert("Delete agency detail " + rowData.name)
+              tooltip: "Delete agency",
+              onClick: (event, rowData) => alert("Delete agency detail " + rowData.name),
             },
           ]}
           onRowClick={(event, rowData, togglePanel) => togglePanel()}
           detailPanel={[
             {
-              tooltip: 'Show Name',
-              render: rowData => {
+              tooltip: "Show Name",
+              render: (rowData) => {
                 return (
                   <div
                     style={{
-                      textAlign: 'center',
-                    }}
-                  >
-                      <AgencyEmployeeList/>
+                      textAlign: "center",
+                    }}>
+                    <AgencyEmployeeList />
                   </div>
-                )
+                );
               },
             },
           ]}
@@ -167,7 +165,7 @@ export default function AgencyList() {
           }}
           title="Agencies' list"
         />
-        </ThemeProvider>
-      </div>
+      </ThemeProvider>
+    </div>
   );
 }
