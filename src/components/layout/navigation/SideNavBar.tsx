@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
-import { createStyles, makeStyles, Theme, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useAppState } from "../../../AppStateContext";
 import NavItem from "./NavItem";
-import { Button, Divider, List, ListItem, Typography } from "@material-ui/core";
+import { Divider, List, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
@@ -91,8 +90,6 @@ export default function SideNavBar(props: Props) {
 
     history.push("/");
   };
-
-  const h = () => <p>asfasf</p>;
 
   return (
     <Drawer
