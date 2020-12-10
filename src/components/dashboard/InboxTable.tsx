@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import TableHeading from "../table-parts/TableHeading";
+import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +38,7 @@ function createData(from: string, subject: string, date: string) {
 }
 
 const rows = [
-  createData("Craig Ritani", "Subject line", new Date("2020,11,05").toDateString()),
+  createData("Craig Ritani", "Subject line", new Date(String("2020,11,05")).toDateString()),
   createData("Craig Ritani", "Subject line", new Date("2020,10,15").toDateString()),
   createData("Craig Ritani", "Subject line", new Date("2020,09,05").toDateString()),
 ];
