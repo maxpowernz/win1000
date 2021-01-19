@@ -4,6 +4,7 @@ import DashBoardSearch from "../components/dashboard/DashBoardSearch";
 import InboxTable from "../components/dashboard/InboxTable";
 import { Avatar, Typography } from "@material-ui/core";
 import { useAppState } from "../AppStateContext";
+import moment from "moment";
 
 function DashBoardHome() {
   const { state } = useAppState();

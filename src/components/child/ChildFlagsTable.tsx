@@ -12,6 +12,7 @@ import { Pageview, Visibility, VisibilityOff } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import FlagDialog from "./FlagDialog";
 import { useAppState } from "../../AppStateContext";
+import { formatDate } from "../../utils/dateUtils";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -93,10 +94,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                   {flag.agencyName}
                 </StyledTableCell>
                 <StyledTableCell>{flag.contact}</StyledTableCell>
-                <StyledTableCell>
-                  {flag.dateFlagOpened} --
-                  {moment(flag.dateFlagOpened).format("DD/MM/YYYY")}
-                </StyledTableCell>
+                <StyledTableCell>{formatDate(flag.dateFlagOpened)}</StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
                 <StyledTableCell>
                   {flag.privacyStatus === "Private" ? <VisibilityOff /> : <Visibility />}

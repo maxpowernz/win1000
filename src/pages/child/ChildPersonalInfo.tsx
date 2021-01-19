@@ -4,6 +4,7 @@ import React from "react";
 import { useAppState } from "../../AppStateContext";
 import ChildFlagsTable from "../../components/child/ChildFlagsTable";
 import PersonalDocumentsTable from "../../components/child/PersonalDocumentsTable";
+import { formatDate } from "../../utils/dateUtils";
 
 export default function ChildPersonalInfo() {
   const { state } = useAppState();
@@ -13,7 +14,7 @@ export default function ChildPersonalInfo() {
   return (
     <div>
       <Typography>Name: {`${firstName} ${middleName} ${lastName}`}</Typography>
-      <Typography>Date of Birth: {moment(new Date(dateOfBirth)).format("DD/MM/YYYY")}</Typography>
+      <Typography>Date of Birth: {formatDate(dateOfBirth)}</Typography>
       <Typography>Age: {moment().diff(dateOfBirth, "years")}</Typography>
       <Typography>Ethnicity: {ethnicity}</Typography>
       {state.selectedChild.flags && (

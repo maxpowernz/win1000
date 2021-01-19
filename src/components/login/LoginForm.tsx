@@ -215,7 +215,7 @@ export default function LoginForm(props: any) {
                 Login
               </Button>
               <Grid item container alignContent="center" justify="center">
-                <img src={RealMeLogo} width="100" alt="logo" />
+                <img src={RealMeLogo} height="100" alt="logo" />
               </Grid>
               <Grid className={classes.margin} container justify="center">
                 <Grid justify="center">

@@ -39,9 +39,9 @@ function createData(from: string, subject: string, date: string) {
 }
 
 const rows = [
-  createData("Craig Ritani", "Subject line", formatDate("2020,11,05")),
-  createData("Craig Ritani", "Subject line", formatDate("2020,10,15")),
-  createData("Craig Ritani", "Subject line", formatDate("2020,09,05")),
+  createData("Craig Ritani", "Subject line", formatDate("2020/11/05")),
+  createData("Craig Ritani", "Subject line", formatDate("2020/10/15")),
+  createData("Craig Ritani", "Subject line", formatDate("2020/09/05")),
 ];
 
 const useStyles = makeStyles(() =>

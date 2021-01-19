@@ -7,7 +7,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Education } from "../../shared/interfaces/education.interface";
-import { formatDate } from "../../utils/dateUtils";
+import { formatDate, subtractDates } from "../../utils/dateUtils";
+import moment from "moment";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -66,7 +67,8 @@ export default function ChildEducationTable({ data }: Props) {
                 </StyledTableCell>
                 <StyledTableCell>{d.schoolType}</StyledTableCell>
                 <StyledTableCell>
-                  {formatDate(d.dateStart)} - {d.dateFinish ? formatDate("DD/MM/YYYY") : "Present"}
+                  {formatDate(d.dateStart)} - {console.log(d.dateFinish)}
+                  {d.dateFinish !== null ? formatDate(d.dateFinish) : "Present"}
                 </StyledTableCell>
               </StyledTableRow>
             ))}

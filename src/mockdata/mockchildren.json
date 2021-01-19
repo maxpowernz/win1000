@@ -8,7 +8,7 @@
       "nsn": "29238239383",
       "ethnicity": "Maori",
       "languagesSpoken": ["English", "Maori"],
-      "dateOfBirth": "2005,08,05",
+      "dateOfBirth": "2005/08/05",
       "countryOfBirth": "New Zealand",
       "family": {
         "father": {
@@ -32,28 +32,28 @@
           "schoolId": 1,
           "schoolName": "Love and Learn",
           "schoolType": "ECE",
-          "dateStart": "2006,02,01",
-          "dateFinish": "2009,10,22"
+          "dateStart": "2006/02/01",
+          "dateFinish": "2009/10/22"
         },
         {
           "schoolId": 2,
           "schoolName": "Wanganui East Primary",
           "schoolType": "Primary",
-          "dateStart": "2010,02,01",
-          "dateFinish": "2015,12,20"
+          "dateStart": "2010/02/01",
+          "dateFinish": "2015/12/20"
         },
         {
           "schoolId": 3,
           "schoolName": "Wanganui Intermediate",
           "schoolType": "Intermediate",
-          "dateStart": "2016,02,25",
-          "dateFinish": "2018,12,21"
+          "dateStart": "2016/02/25",
+          "dateFinish": "2018/12/21"
         },
         {
           "schoolId": 4,
           "schoolName": "Girls College",
           "schoolType": "High School",
-          "dateStart": "2020,02,01",
+          "dateStart": "2020/02/01",
           "dateFinish": null
         }
       ],
@@ -63,7 +63,7 @@
           "agencyId": 1,
           "schoolId": null,
           "privacyStatus": "Private",
-          "dateMatterOpened": "2012,02,02",
+          "dateFlagOpened": "2012/02/02",
           "contactNumber": "020 000 000",
           "agencyName": "Housing New Zealand",
           "contact": "Mrs Person Name",
@@ -77,7 +77,7 @@
           "schoolId": null,
           "privacyStatus": "Public",
           "contactNumber": "020 000 000",
-          "dateMatterOpened": "2012,05,02",
+          "dateFlagOpened": "2012/05/02",
           "agencyName": "Work and Income",
           "contact": "Mrs Person Name",
           "flagDescription": "Getting required entitlements",
@@ -91,7 +91,7 @@
           "contactNumber": "020 000 000",
 
           "privacyStatus": "Private",
-          "dateMatterOpened": "2012,07,02",
+          "dateFlagOpened": "2012/07/02",
           "agencyName": "Love and Learn",
           "contact": "Marie",
           "flagDescription": "flag description etc",
@@ -105,7 +105,7 @@
           "contactNumber": "020 000 000",
 
           "privacyStatus": "Private",
-          "dateMatterOpened": "2012,07,02",
+          "dateFlagOpened": "2012/07/02",
           "agencyName": "District Health Board",
           "contact": "Mrs Person Name",
           "flagDescription": "Was born a big baby",
@@ -119,7 +119,7 @@
           "contactNumber": "020 000 000",
 
           "privacyStatus": "Private",
-          "dateMatterOpened": "2020,07,02",
+          "dateFlagOpened": "2020/07/02",
           "agencyName": "Ministry of Justice",
           "contact": "Mr Police Man",
           "flagDescription": "Domestic Violence",
