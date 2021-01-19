@@ -6,7 +6,7 @@ import { Box, Button, Grid, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import childList from "../../mockdata/mockchildren.json";
 import { Child } from "../../shared/interfaces/child.interface";
-import moment from "moment";
+import { formatDate } from "../../utils/dateUtils";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -57,11 +57,7 @@ export default function ComboBox() {
             options={children}
             className={classes.textField}
             getOptionLabel={(option: Child) =>
-              option.firstName +
-              " " +
-              option.lastName +
-              " - " +
-              moment(new Date(option.dateOfBirth)).format("DD/MM/YYYY")
+              option.firstName + " " + option.lastName + " - " + formatDate(option.dateOfBirth)
             }
             renderInput={(params) => {
               return <TextField {...params} variant="outlined" placeholder="Lastname" />;

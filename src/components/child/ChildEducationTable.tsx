@@ -7,7 +7,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Education } from "../../shared/interfaces/education.interface";
-import moment from "moment";
 import { formatDate } from "../../utils/dateUtils";
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -32,10 +31,6 @@ const StyledTableRow = withStyles((theme) =>
     },
   })
 )(TableRow);
-
-// function createData(from: string, subject: string, date: string) {
-//   return { from, subject, date };
-// }
 
 const useStyles = makeStyles(() =>
   createStyles({
