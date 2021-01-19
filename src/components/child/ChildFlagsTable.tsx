@@ -94,6 +94,7 @@ export default function ChildFlagsTable({ flags }: FlagProps) {
                 </StyledTableCell>
                 <StyledTableCell>{flag.contact}</StyledTableCell>
                 <StyledTableCell>
+                  {flag.dateFlagOpened} --
                   {moment(flag.dateFlagOpened).format("DD/MM/YYYY")}
                 </StyledTableCell>
                 <StyledTableCell>{flag.flagStatus}</StyledTableCell>
