@@ -8,6 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableWrapper from "../table-parts/TableWrapper";
 import { Education } from "../../shared/interfaces/education.interface";
 import moment from "moment";
+import { formatDate } from "../../utils/dateUtils";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -70,8 +71,7 @@ export default function ChildEducationTable({ data }: Props) {
                 </StyledTableCell>
                 <StyledTableCell>{d.schoolType}</StyledTableCell>
                 <StyledTableCell>
-                  {moment(d.dateStart).format("DD/MM/YYYY")} -{" "}
-                  {d.dateFinish ? moment(d.dateFinish).format("DD/MM/YYYY") : "Present"}
+                  {formatDate(d.dateStart)} - {d.dateFinish ? formatDate("DD/MM/YYYY") : "Present"}
                 </StyledTableCell>
               </StyledTableRow>
             ))}

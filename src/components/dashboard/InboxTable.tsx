@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import TableHeading from "../table-parts/TableHeading";
 import moment from "moment";
+import { formatDate } from "../../utils/dateUtils";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -38,9 +39,9 @@ function createData(from: string, subject: string, date: string) {
 }
 
 const rows = [
-  createData("Craig Ritani", "Subject line", new Date(String("2020,11,05")).toDateString()),
-  createData("Craig Ritani", "Subject line", new Date("2020,10,15").toDateString()),
-  createData("Craig Ritani", "Subject line", new Date("2020,09,05").toDateString()),
+  createData("Craig Ritani", "Subject line", formatDate("2020,11,05")),
+  createData("Craig Ritani", "Subject line", formatDate("2020,10,15")),
+  createData("Craig Ritani", "Subject line", formatDate("2020,09,05")),
 ];
 
 const useStyles = makeStyles(() =>
