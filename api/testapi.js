@@ -24,5 +24,7 @@ apiRequest.end();
 module.exports = (req, res) => {
   const { name = "World" } = req.query;
 
+  apiRequest();
+
   res.status(200).send(`Hello ${name}!`);
 };
