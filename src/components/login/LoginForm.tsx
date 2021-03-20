@@ -107,8 +107,8 @@ export default function LoginForm(props: any) {
   //const history = useHistory();
 
   const [values, setValues] = React.useState<State>({
-    username: "",
-    password: "",
+    username: "demo",
+    password: "demo",
     isRemembered: false,
     isUsernameValid: true,
     isPasswordValid: true,
@@ -175,7 +175,7 @@ export default function LoginForm(props: any) {
                 <FilledInput
                   error={values.password.length < 3 && values.password.length > 0}
                   id="filled-adornment-password"
-                  type={values.showPassword ? "text" : "password"}
+                  //type={values.showPassword ? "text" : "password"}
                   value={values.password}
                   onChange={handleChange("password")}
                   endAdornment={
