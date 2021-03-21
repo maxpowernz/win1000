@@ -175,7 +175,7 @@ export default function LoginForm(props: any) {
                 <FilledInput
                   error={values.password.length < 3 && values.password.length > 0}
                   id="filled-adornment-password"
-                  //type={values.showPassword ? "text" : "password"}
+                  type={values.showPassword ? "text" : "password"}
                   value={values.password}
                   onChange={handleChange("password")}
                   endAdornment={
